@@ -1,0 +1,713 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6D796A2F251A3DED00CCF94F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796A2E251A3DED00CCF94F /* AppDelegate.swift */; };
+		6D796A31251A3DED00CCF94F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796A30251A3DED00CCF94F /* SceneDelegate.swift */; };
+		6D796A33251A3DED00CCF94F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796A32251A3DED00CCF94F /* ViewController.swift */; };
+		6D796A35251A3DF000CCF94F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D796A34251A3DF000CCF94F /* Assets.xcassets */; };
+		6D796A38251A3DF000CCF94F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D796A36251A3DF000CCF94F /* LaunchScreen.storyboard */; };
+		6D796A43251A3DF000CCF94F /* TestLeBonCoinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796A42251A3DF000CCF94F /* TestLeBonCoinTests.swift */; };
+		6D796A4E251A3DF000CCF94F /* TestLeBonCoinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796A4D251A3DF000CCF94F /* TestLeBonCoinUITests.swift */; };
+		6D796A59251A3DF000CCF94F /* TestLeBonCoinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796A58251A3DF000CCF94F /* TestLeBonCoinTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6D796A3F251A3DF000CCF94F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6D796A23251A3DED00CCF94F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6D796A2A251A3DED00CCF94F;
+			remoteInfo = TestLeBonCoin;
+		};
+		6D796A4A251A3DF000CCF94F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6D796A23251A3DED00CCF94F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6D796A2A251A3DED00CCF94F;
+			remoteInfo = TestLeBonCoin;
+		};
+		6D796A55251A3DF000CCF94F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6D796A23251A3DED00CCF94F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6D796A2A251A3DED00CCF94F;
+			remoteInfo = TestLeBonCoin;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6D796A2B251A3DED00CCF94F /* TestLeBonCoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestLeBonCoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D796A2E251A3DED00CCF94F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6D796A30251A3DED00CCF94F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		6D796A32251A3DED00CCF94F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6D796A34251A3DF000CCF94F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6D796A37251A3DF000CCF94F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6D796A39251A3DF000CCF94F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D796A3E251A3DF000CCF94F /* TestLeBonCoinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestLeBonCoinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D796A42251A3DF000CCF94F /* TestLeBonCoinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLeBonCoinTests.swift; sourceTree = "<group>"; };
+		6D796A44251A3DF000CCF94F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D796A49251A3DF000CCF94F /* TestLeBonCoinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestLeBonCoinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D796A4D251A3DF000CCF94F /* TestLeBonCoinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLeBonCoinUITests.swift; sourceTree = "<group>"; };
+		6D796A4F251A3DF000CCF94F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D796A54251A3DF000CCF94F /* TestLeBonCoinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestLeBonCoinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D796A58251A3DF000CCF94F /* TestLeBonCoinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLeBonCoinTests.swift; sourceTree = "<group>"; };
+		6D796A5A251A3DF000CCF94F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6D796A28251A3DED00CCF94F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D796A3B251A3DF000CCF94F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D796A46251A3DF000CCF94F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D796A51251A3DF000CCF94F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6D796A22251A3DED00CCF94F = {
+			isa = PBXGroup;
+			children = (
+				6D796A2D251A3DED00CCF94F /* TestLeBonCoin */,
+				6D796A41251A3DF000CCF94F /* TestLeBonCoinTests */,
+				6D796A4C251A3DF000CCF94F /* TestLeBonCoinUITests */,
+				6D796A57251A3DF000CCF94F /* TestLeBonCoinTests */,
+				6D796A2C251A3DED00CCF94F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6D796A2C251A3DED00CCF94F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6D796A2B251A3DED00CCF94F /* TestLeBonCoin.app */,
+				6D796A3E251A3DF000CCF94F /* TestLeBonCoinTests.xctest */,
+				6D796A49251A3DF000CCF94F /* TestLeBonCoinUITests.xctest */,
+				6D796A54251A3DF000CCF94F /* TestLeBonCoinTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6D796A2D251A3DED00CCF94F /* TestLeBonCoin */ = {
+			isa = PBXGroup;
+			children = (
+				6D796A2E251A3DED00CCF94F /* AppDelegate.swift */,
+				6D796A30251A3DED00CCF94F /* SceneDelegate.swift */,
+				6D796A32251A3DED00CCF94F /* ViewController.swift */,
+				6D796A34251A3DF000CCF94F /* Assets.xcassets */,
+				6D796A36251A3DF000CCF94F /* LaunchScreen.storyboard */,
+				6D796A39251A3DF000CCF94F /* Info.plist */,
+			);
+			path = TestLeBonCoin;
+			sourceTree = "<group>";
+		};
+		6D796A41251A3DF000CCF94F /* TestLeBonCoinTests */ = {
+			isa = PBXGroup;
+			children = (
+				6D796A42251A3DF000CCF94F /* TestLeBonCoinTests.swift */,
+				6D796A44251A3DF000CCF94F /* Info.plist */,
+			);
+			path = TestLeBonCoinTests;
+			sourceTree = "<group>";
+		};
+		6D796A4C251A3DF000CCF94F /* TestLeBonCoinUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6D796A4D251A3DF000CCF94F /* TestLeBonCoinUITests.swift */,
+				6D796A4F251A3DF000CCF94F /* Info.plist */,
+			);
+			path = TestLeBonCoinUITests;
+			sourceTree = "<group>";
+		};
+		6D796A57251A3DF000CCF94F /* TestLeBonCoinTests */ = {
+			isa = PBXGroup;
+			children = (
+				6D796A58251A3DF000CCF94F /* TestLeBonCoinTests.swift */,
+				6D796A5A251A3DF000CCF94F /* Info.plist */,
+			);
+			path = TestLeBonCoinTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6D796A2A251A3DED00CCF94F /* TestLeBonCoin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6D796A5D251A3DF000CCF94F /* Build configuration list for PBXNativeTarget "TestLeBonCoin" */;
+			buildPhases = (
+				6D796A27251A3DED00CCF94F /* Sources */,
+				6D796A28251A3DED00CCF94F /* Frameworks */,
+				6D796A29251A3DED00CCF94F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TestLeBonCoin;
+			productName = TestLeBonCoin;
+			productReference = 6D796A2B251A3DED00CCF94F /* TestLeBonCoin.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6D796A3D251A3DF000CCF94F /* TestLeBonCoinTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6D796A60251A3DF000CCF94F /* Build configuration list for PBXNativeTarget "TestLeBonCoinTests" */;
+			buildPhases = (
+				6D796A3A251A3DF000CCF94F /* Sources */,
+				6D796A3B251A3DF000CCF94F /* Frameworks */,
+				6D796A3C251A3DF000CCF94F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6D796A40251A3DF000CCF94F /* PBXTargetDependency */,
+			);
+			name = TestLeBonCoinTests;
+			productName = TestLeBonCoinTests;
+			productReference = 6D796A3E251A3DF000CCF94F /* TestLeBonCoinTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6D796A48251A3DF000CCF94F /* TestLeBonCoinUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6D796A63251A3DF000CCF94F /* Build configuration list for PBXNativeTarget "TestLeBonCoinUITests" */;
+			buildPhases = (
+				6D796A45251A3DF000CCF94F /* Sources */,
+				6D796A46251A3DF000CCF94F /* Frameworks */,
+				6D796A47251A3DF000CCF94F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6D796A4B251A3DF000CCF94F /* PBXTargetDependency */,
+			);
+			name = TestLeBonCoinUITests;
+			productName = TestLeBonCoinUITests;
+			productReference = 6D796A49251A3DF000CCF94F /* TestLeBonCoinUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		6D796A53251A3DF000CCF94F /* TestLeBonCoinTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6D796A66251A3DF000CCF94F /* Build configuration list for PBXNativeTarget "TestLeBonCoinTests" */;
+			buildPhases = (
+				6D796A50251A3DF000CCF94F /* Sources */,
+				6D796A51251A3DF000CCF94F /* Frameworks */,
+				6D796A52251A3DF000CCF94F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6D796A56251A3DF000CCF94F /* PBXTargetDependency */,
+			);
+			name = TestLeBonCoinTests;
+			productName = TestLeBonCoinTests;
+			productReference = 6D796A54251A3DF000CCF94F /* TestLeBonCoinTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6D796A23251A3DED00CCF94F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					6D796A2A251A3DED00CCF94F = {
+						CreatedOnToolsVersion = 12.0;
+					};
+					6D796A3D251A3DF000CCF94F = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = 6D796A2A251A3DED00CCF94F;
+					};
+					6D796A48251A3DF000CCF94F = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = 6D796A2A251A3DED00CCF94F;
+					};
+					6D796A53251A3DF000CCF94F = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = 6D796A2A251A3DED00CCF94F;
+					};
+				};
+			};
+			buildConfigurationList = 6D796A26251A3DED00CCF94F /* Build configuration list for PBXProject "TestLeBonCoin" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6D796A22251A3DED00CCF94F;
+			productRefGroup = 6D796A2C251A3DED00CCF94F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6D796A2A251A3DED00CCF94F /* TestLeBonCoin */,
+				6D796A3D251A3DF000CCF94F /* TestLeBonCoinTests */,
+				6D796A48251A3DF000CCF94F /* TestLeBonCoinUITests */,
+				6D796A53251A3DF000CCF94F /* TestLeBonCoinTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6D796A29251A3DED00CCF94F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D796A35251A3DF000CCF94F /* Assets.xcassets in Resources */,
+				6D796A38251A3DF000CCF94F /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D796A3C251A3DF000CCF94F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D796A47251A3DF000CCF94F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D796A52251A3DF000CCF94F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6D796A27251A3DED00CCF94F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D796A33251A3DED00CCF94F /* ViewController.swift in Sources */,
+				6D796A2F251A3DED00CCF94F /* AppDelegate.swift in Sources */,
+				6D796A31251A3DED00CCF94F /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D796A3A251A3DF000CCF94F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D796A43251A3DF000CCF94F /* TestLeBonCoinTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D796A45251A3DF000CCF94F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D796A4E251A3DF000CCF94F /* TestLeBonCoinUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D796A50251A3DF000CCF94F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D796A59251A3DF000CCF94F /* TestLeBonCoinTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6D796A40251A3DF000CCF94F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6D796A2A251A3DED00CCF94F /* TestLeBonCoin */;
+			targetProxy = 6D796A3F251A3DF000CCF94F /* PBXContainerItemProxy */;
+		};
+		6D796A4B251A3DF000CCF94F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6D796A2A251A3DED00CCF94F /* TestLeBonCoin */;
+			targetProxy = 6D796A4A251A3DF000CCF94F /* PBXContainerItemProxy */;
+		};
+		6D796A56251A3DF000CCF94F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6D796A2A251A3DED00CCF94F /* TestLeBonCoin */;
+			targetProxy = 6D796A55251A3DF000CCF94F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6D796A36251A3DF000CCF94F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6D796A37251A3DF000CCF94F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6D796A5B251A3DF000CCF94F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6D796A5C251A3DF000CCF94F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6D796A5E251A3DF000CCF94F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4296Y3XN7F;
+				INFOPLIST_FILE = TestLeBonCoin/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.testLeBonCoin.TestLeBonCoin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6D796A5F251A3DF000CCF94F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4296Y3XN7F;
+				INFOPLIST_FILE = TestLeBonCoin/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.testLeBonCoin.TestLeBonCoin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6D796A61251A3DF000CCF94F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4296Y3XN7F;
+				INFOPLIST_FILE = TestLeBonCoinTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.testLeBonCoin.TestLeBonCoinTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestLeBonCoin.app/TestLeBonCoin";
+			};
+			name = Debug;
+		};
+		6D796A62251A3DF000CCF94F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4296Y3XN7F;
+				INFOPLIST_FILE = TestLeBonCoinTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.testLeBonCoin.TestLeBonCoinTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestLeBonCoin.app/TestLeBonCoin";
+			};
+			name = Release;
+		};
+		6D796A64251A3DF000CCF94F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4296Y3XN7F;
+				INFOPLIST_FILE = TestLeBonCoinUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.testLeBonCoin.TestLeBonCoinUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TestLeBonCoin;
+			};
+			name = Debug;
+		};
+		6D796A65251A3DF000CCF94F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4296Y3XN7F;
+				INFOPLIST_FILE = TestLeBonCoinUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.testLeBonCoin.TestLeBonCoinUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TestLeBonCoin;
+			};
+			name = Release;
+		};
+		6D796A67251A3DF000CCF94F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4296Y3XN7F;
+				INFOPLIST_FILE = TestLeBonCoinTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.testLeBonCoin.TestLeBonCoinTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestLeBonCoin.app/TestLeBonCoin";
+			};
+			name = Debug;
+		};
+		6D796A68251A3DF000CCF94F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4296Y3XN7F;
+				INFOPLIST_FILE = TestLeBonCoinTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.testLeBonCoin.TestLeBonCoinTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestLeBonCoin.app/TestLeBonCoin";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6D796A26251A3DED00CCF94F /* Build configuration list for PBXProject "TestLeBonCoin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D796A5B251A3DF000CCF94F /* Debug */,
+				6D796A5C251A3DF000CCF94F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6D796A5D251A3DF000CCF94F /* Build configuration list for PBXNativeTarget "TestLeBonCoin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D796A5E251A3DF000CCF94F /* Debug */,
+				6D796A5F251A3DF000CCF94F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6D796A60251A3DF000CCF94F /* Build configuration list for PBXNativeTarget "TestLeBonCoinTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D796A61251A3DF000CCF94F /* Debug */,
+				6D796A62251A3DF000CCF94F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6D796A63251A3DF000CCF94F /* Build configuration list for PBXNativeTarget "TestLeBonCoinUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D796A64251A3DF000CCF94F /* Debug */,
+				6D796A65251A3DF000CCF94F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6D796A66251A3DF000CCF94F /* Build configuration list for PBXNativeTarget "TestLeBonCoinTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D796A67251A3DF000CCF94F /* Debug */,
+				6D796A68251A3DF000CCF94F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6D796A23251A3DED00CCF94F /* Project object */;
+}
