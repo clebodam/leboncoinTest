@@ -11,14 +11,15 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         if #available(iOS 13.0, *) {
             // In iOS 13 setup is done in SceneDelegate
         } else {
-            self.window?.makeKeyAndVisible()
+            let window = UIWindow(frame: UIScreen.main.bounds)
+            self.window = window
+            let viewController = UINavigationController(rootViewController: ListTableViewController())
+            window.setup(viewController)
         }
 
         return true
@@ -44,24 +45,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Not called under iOS 13 - See SceneDelegate sceneDidBecomeActive
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
-
-    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
-        // Override point for customization after application launch.
-        if #available(iOS 13.0, *) {
-            // In iOS 13 setup is done in SceneDelegate
-        } else {
-            let window = UIWindow(frame: UIScreen.main.bounds)
-            self.window = window
-
-            let viewController = ViewController()
-            window.rootViewController = viewController
-        }
-
-        return true
-    }
-
-
-
-
 }
 
