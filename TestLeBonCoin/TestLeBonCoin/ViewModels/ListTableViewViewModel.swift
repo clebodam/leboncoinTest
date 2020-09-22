@@ -28,7 +28,7 @@ class ListTableViewViewModel {
     }
 
     func populate() {
-        for i in 0...10 {
+        for i in 0...100 {
             let category = CategoryViewModel(name :"category : \(i%3)",id: "\(i%3)")
             let item = ItemViewModel(title: "item : \(i)", description: "description : \(i)", id: "\(i)", category: category)
             items.append(item)

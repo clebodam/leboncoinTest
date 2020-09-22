@@ -20,6 +20,7 @@
 		6D796A94251A8DE400CCF94F /* ListTableViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796A93251A8DE400CCF94F /* ListTableViewViewModel.swift */; };
 		6D796A9B251A99D700CCF94F /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796A9A251A99D700CCF94F /* ItemViewModel.swift */; };
 		6D796AA1251A9A5000CCF94F /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796AA0251A9A5000CCF94F /* CategoryViewModel.swift */; };
+		6D796AB4251ABB5C00CCF94F /* UIAlertViewController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796AB3251ABB5C00CCF94F /* UIAlertViewController+Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		6D796A93251A8DE400CCF94F /* ListTableViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewViewModel.swift; sourceTree = "<group>"; };
 		6D796A9A251A99D700CCF94F /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
 		6D796AA0251A9A5000CCF94F /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
+		6D796AB3251ABB5C00CCF94F /* UIAlertViewController+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertViewController+Helper.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				6D796A6E251A785C00CCF94F /* UIWindow+init.swift */,
+				6D796AB3251ABB5C00CCF94F /* UIAlertViewController+Helper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				6D796A9B251A99D700CCF94F /* ItemViewModel.swift in Sources */,
 				6D796A7A251A7AEC00CCF94F /* ListTableViewController.swift in Sources */,
 				6D796A6F251A785C00CCF94F /* UIWindow+init.swift in Sources */,
+				6D796AB4251ABB5C00CCF94F /* UIAlertViewController+Helper.swift in Sources */,
 				6D796AA1251A9A5000CCF94F /* CategoryViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

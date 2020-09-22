@@ -15,7 +15,7 @@ class ListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.filterButton = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(filterAction))
-         self.navigationItem.rightBarButtonItem = self.filterButton
+        self.navigationItem.rightBarButtonItem = self.filterButton
         self.tableView.register(UITableViewCell.self,forCellReuseIdentifier: "reuseIdentifier")
         bindViewModel()
     }
@@ -52,105 +52,89 @@ class ListTableViewController: UITableViewController {
 
 
     /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
+     // Override to support conditional editing of the table view.
+     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the specified item to be editable.
+     return true
+     }
+     */
 
     /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
+     // Override to support editing the table view.
+     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+     if editingStyle == .delete {
+     // Delete the row from the data source
+     tableView.deleteRows(at: [indexPath], with: .fade)
+     } else if editingStyle == .insert {
+     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+     }
+     }
+     */
 
     /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+     // Override to support rearranging the table view.
+     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
 
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
+     }
+     */
 
     /*
-    // MARK: - Navigation
+     // Override to support conditional rearranging of the table view.
+     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the item to be re-orderable.
+     return true
+     }
+     */
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    /*
+     // MARK: - Navigation
+
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
 
     // MARK: - Actions
     @objc func filterAction() {
 
-        let message = "\n\n\n\n\n\n"
-        let alert = UIAlertController(title: "Please choose your categoy to filter", message: message, preferredStyle: UIAlertController.Style.actionSheet)
+        let alert = UIAlertController(title: "Please choose your categoy to filter", message: nil, preferredStyle: UIAlertController.Style.actionSheet)
         alert.isModalInPopover = true
+        var pickerViewValues: [[String]] = [[String]]()
+        if let values = viewModel.getCategories()?.map({$0.name }) {
+            pickerViewValues = [values]
+        }
+        var selectedIndex = 0
+        if let selectedCategory =  self.viewModel.filterCategory {
+            selectedIndex =  self.viewModel.getCategories()?.firstIndex(of:  selectedCategory) ?? 0
+        }
 
-        let pickerFrame = UIPickerView(frame: CGRect(x: 5, y: 20, width: UIScreen.main.bounds.size.width - 20, height: 140)) // CGRectMake(left, top, width, height) - left and top are like margins
-        pickerFrame.tag = 555
-        //set the pickers datasource and delegate
-        pickerFrame.delegate = self
-        pickerFrame.dataSource = self
-        //Add the picker to the alert controller
-        alert.view.addSubview(pickerFrame)
+        let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: selectedIndex)
+
+        alert.addPickerView(values: pickerViewValues, initialSelection: pickerViewSelectedValue) { vc, picker, index, values in
+            let categories =  self.viewModel.getCategories()
+            self.viewModel.filterCategory = categories?[index.row]
+        }
+
         let okAction = UIAlertAction(title: "OK", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
             if  self.viewModel.filterCategory == nil {
                 let categories =  self.viewModel.getCategories()
-                self.viewModel.filterCategory = categories?[pickerFrame.selectedRow(inComponent: 0)]
+                self.viewModel.filterCategory = categories?[0]
             }
             self.viewModel.filter()
-          //Perform Action
         })
 
         alert.addAction(okAction)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: { _ in
+        let cancelAction = UIAlertAction(title: "No Filter", style: .destructive, handler: { _ in
             self.viewModel.filterCategory = nil
             self.viewModel.filter()
         })
         alert.addAction(cancelAction)
+
+
         self.parent!.present(alert, animated: true, completion: {  })
     }
 }
 
-extension ListTableViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-
-    // MARK: - UIPickerViewDelegation
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return viewModel.getCategories()?.count ?? 0
-    }
-
-
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let categories =  viewModel.getCategories()
-        return categories?[row].name
-
-    }
-
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let categories =  viewModel.getCategories()
-        viewModel.filterCategory = categories?[row]
-    }
-
-}
