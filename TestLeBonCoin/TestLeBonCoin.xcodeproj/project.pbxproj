@@ -21,6 +21,13 @@
 		6D796A9B251A99D700CCF94F /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796A9A251A99D700CCF94F /* ItemViewModel.swift */; };
 		6D796AA1251A9A5000CCF94F /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796AA0251A9A5000CCF94F /* CategoryViewModel.swift */; };
 		6D796AB4251ABB5C00CCF94F /* UIAlertViewController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796AB3251ABB5C00CCF94F /* UIAlertViewController+Helper.swift */; };
+		6D796ABC251B30BF00CCF94F /* NetWorkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796ABB251B30BF00CCF94F /* NetWorkService.swift */; };
+		6D796AC6251B3C6900CCF94F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796AC5251B3C6900CCF94F /* Item.swift */; };
+		6D796ACC251B3FAA00CCF94F /* DateFormatter+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796ACB251B3FAA00CCF94F /* DateFormatter+extension.swift */; };
+		6D796AD3251B418F00CCF94F /* Dao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796AD2251B418F00CCF94F /* Dao.swift */; };
+		6D796AD9251B68E700CCF94F /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796AD8251B68E700CCF94F /* Category.swift */; };
+		6D796AE0251B6D3900CCF94F /* SyncnhroManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796ADF251B6D3900CCF94F /* SyncnhroManager.swift */; };
+		6D796AF0251C074700CCF94F /* UIImageView+network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796AEF251C074700CCF94F /* UIImageView+network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +77,13 @@
 		6D796A9A251A99D700CCF94F /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
 		6D796AA0251A9A5000CCF94F /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		6D796AB3251ABB5C00CCF94F /* UIAlertViewController+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertViewController+Helper.swift"; sourceTree = "<group>"; };
+		6D796ABB251B30BF00CCF94F /* NetWorkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkService.swift; sourceTree = "<group>"; };
+		6D796AC5251B3C6900CCF94F /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		6D796ACB251B3FAA00CCF94F /* DateFormatter+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+extension.swift"; sourceTree = "<group>"; };
+		6D796AD2251B418F00CCF94F /* Dao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dao.swift; sourceTree = "<group>"; };
+		6D796AD8251B68E700CCF94F /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		6D796ADF251B6D3900CCF94F /* SyncnhroManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncnhroManager.swift; sourceTree = "<group>"; };
+		6D796AEF251C074700CCF94F /* UIImageView+network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+network.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +144,9 @@
 			isa = PBXGroup;
 			children = (
 				6D796A2E251A3DED00CCF94F /* AppDelegate.swift */,
+				6D796ADE251B6CFF00CCF94F /* Synchro */,
+				6D796ABA251B30A800CCF94F /* Network */,
+				6D796AB9251B309F00CCF94F /* Storage */,
 				6D796A99251A996F00CCF94F /* Model */,
 				6D796A8C251A8C8800CCF94F /* ViewModels */,
 				6D796A78251A7AA300CCF94F /* UI */,
@@ -173,6 +190,8 @@
 			isa = PBXGroup;
 			children = (
 				6D796A6E251A785C00CCF94F /* UIWindow+init.swift */,
+				6D796AEF251C074700CCF94F /* UIImageView+network.swift */,
+				6D796ACB251B3FAA00CCF94F /* DateFormatter+extension.swift */,
 				6D796AB3251ABB5C00CCF94F /* UIAlertViewController+Helper.swift */,
 			);
 			path = Helpers;
@@ -197,6 +216,8 @@
 		6D796A8C251A8C8800CCF94F /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				6D796A9A251A99D700CCF94F /* ItemViewModel.swift */,
+				6D796AA0251A9A5000CCF94F /* CategoryViewModel.swift */,
 				6D796A8B251A8C6C00CCF94F /* UIBinding */,
 				6D796A93251A8DE400CCF94F /* ListTableViewViewModel.swift */,
 			);
@@ -206,10 +227,34 @@
 		6D796A99251A996F00CCF94F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6D796A9A251A99D700CCF94F /* ItemViewModel.swift */,
-				6D796AA0251A9A5000CCF94F /* CategoryViewModel.swift */,
+				6D796AC5251B3C6900CCF94F /* Item.swift */,
+				6D796AD8251B68E700CCF94F /* Category.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		6D796AB9251B309F00CCF94F /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				6D796AD2251B418F00CCF94F /* Dao.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		6D796ABA251B30A800CCF94F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				6D796ABB251B30BF00CCF94F /* NetWorkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		6D796ADE251B6CFF00CCF94F /* Synchro */ = {
+			isa = PBXGroup;
+			children = (
+				6D796ADF251B6D3900CCF94F /* SyncnhroManager.swift */,
+			);
+			path = Synchro;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,10 +421,17 @@
 				6D796A8E251A8CAC00CCF94F /* Dynamic.swift in Sources */,
 				6D796A31251A3DED00CCF94F /* SceneDelegate.swift in Sources */,
 				6D796A9B251A99D700CCF94F /* ItemViewModel.swift in Sources */,
+				6D796AF0251C074700CCF94F /* UIImageView+network.swift in Sources */,
 				6D796A7A251A7AEC00CCF94F /* ListTableViewController.swift in Sources */,
+				6D796AC6251B3C6900CCF94F /* Item.swift in Sources */,
+				6D796AE0251B6D3900CCF94F /* SyncnhroManager.swift in Sources */,
 				6D796A6F251A785C00CCF94F /* UIWindow+init.swift in Sources */,
 				6D796AB4251ABB5C00CCF94F /* UIAlertViewController+Helper.swift in Sources */,
+				6D796AD3251B418F00CCF94F /* Dao.swift in Sources */,
+				6D796ABC251B30BF00CCF94F /* NetWorkService.swift in Sources */,
+				6D796ACC251B3FAA00CCF94F /* DateFormatter+extension.swift in Sources */,
 				6D796AA1251A9A5000CCF94F /* CategoryViewModel.swift in Sources */,
+				6D796AD9251B68E700CCF94F /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

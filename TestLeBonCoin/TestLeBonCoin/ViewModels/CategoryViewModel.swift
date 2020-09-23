@@ -16,13 +16,14 @@ class CategoryViewModel :Hashable {
         hasher.combine(id)
     }
 
-    var id :  String
+    var id :  Int
     var name : String
 
-    init(name: String, id: String) {
-        self.id = id
-        self.name = name
+    init(_ category: Category) {
+        self.name = category.getName()
+        self.id = category.getId()
     }
+
 
 
 }

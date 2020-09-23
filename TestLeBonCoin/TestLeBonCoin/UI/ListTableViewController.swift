@@ -9,15 +9,24 @@ import UIKit
 
 class ListTableViewController: UITableViewController {
     var filterButton: UIBarButtonItem?
+    var reloadButton: UIBarButtonItem?
     var viewModel = ListTableViewViewModel()
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.filterButton = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(filterAction))
+
+        self.reloadButton = UIBarButtonItem(title: "Reload", style: .plain, target: self, action: #selector(reloadAction))
+        self.navigationItem.leftBarButtonItem = self.reloadButton
         self.navigationItem.rightBarButtonItem = self.filterButton
         self.tableView.register(UITableViewCell.self,forCellReuseIdentifier: "reuseIdentifier")
         bindViewModel()
+
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        reloadAction()
     }
 
     func bindViewModel() {
@@ -97,8 +106,11 @@ class ListTableViewController: UITableViewController {
      */
 
     // MARK: - Actions
-    @objc func filterAction() {
 
+    @objc func reloadAction() {
+        self.viewModel.reloadAction()
+    }
+    @objc func filterAction(sender:UIBarButtonItem) {
         let alert = UIAlertController(title: "Please choose your categoy to filter", message: nil, preferredStyle: UIAlertController.Style.actionSheet)
         alert.isModalInPopover = true
         var pickerViewValues: [[String]] = [[String]]()
@@ -133,7 +145,9 @@ class ListTableViewController: UITableViewController {
         })
         alert.addAction(cancelAction)
 
-
+        if let presenter = alert.popoverPresentationController {
+            presenter.barButtonItem = sender
+        }
         self.parent!.present(alert, animated: true, completion: {  })
     }
 }
