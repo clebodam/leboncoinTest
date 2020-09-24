@@ -13,7 +13,7 @@ let imageCache = NSCache<NSString, AnyObject>()
 extension UIImageView {
     func loadImageUsingCache(withUrl urlString : String) {
         let url = URL(string: urlString)
-        self.image = nil
+        self.image = UIImage(named:"image-not-found")
         // check cached image
         if let cachedImage = imageCache.object(forKey: urlString as NSString) as? UIImage {
             self.image = cachedImage

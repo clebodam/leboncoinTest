@@ -9,18 +9,15 @@ import Foundation
 import UIKit
 
 extension UIAlertController {
-    func set(vc: UIViewController?, width: CGFloat? = nil, height: CGFloat? = nil) {
+    func set(vc: UIViewController?) {
         guard let vc = vc else { return }
         setValue(vc, forKey: "contentViewController")
-        if let height = height {
-            vc.preferredContentSize.height = height
-            preferredContentSize.height = height
-        }
+
     }
 
     func addPickerView(values: PickerViewViewController.Values,  initialSelection: PickerViewViewController.Index? = nil, action: PickerViewViewController.Action?) {
         let pickerView = PickerViewViewController(values: values, initialSelection: initialSelection, action: action)
-        set(vc: pickerView, height: 216)
+        set(vc: pickerView)
     }
 }
 
@@ -54,11 +51,15 @@ final class PickerViewViewController: UIViewController {
     }
 
     override func loadView() {
-        view = pickerView
+        view = UIView()
+
+
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.addSubview(pickerView)
+        pickerView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0, enableInsets: true)
         pickerView.dataSource = self
         pickerView.delegate = self
     }

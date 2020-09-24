@@ -15,12 +15,22 @@ class ListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.filterButton = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(filterAction))
 
-        self.reloadButton = UIBarButtonItem(title: "Reload", style: .plain, target: self, action: #selector(reloadAction))
+        let button = UIButton()
+        button.addTarget(self, action: #selector(filterAction(sender:)), for: .touchUpInside)
+        button.setImage(UIImage(named: "filter"), for: UIControl.State())
+        self.filterButton = UIBarButtonItem(customView: button)
+
+        let button1 = UIButton()
+        button1.addTarget(self, action: #selector(reloadAction), for: .touchUpInside)
+        button1.setImage(UIImage(named: "refresh"), for: UIControl.State())
+        self.reloadButton = UIBarButtonItem(customView: button1)
         self.navigationItem.leftBarButtonItem = self.reloadButton
         self.navigationItem.rightBarButtonItem = self.filterButton
-        self.tableView.register(UITableViewCell.self,forCellReuseIdentifier: "reuseIdentifier")
+        self.tableView.register(ItemTableViewCell.self,forCellReuseIdentifier: "reuseIdentifier")
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 150
+        self.tableView.separatorStyle = .none
         bindViewModel()
 
     }
@@ -32,9 +42,21 @@ class ListTableViewController: UITableViewController {
     func bindViewModel() {
         viewModel.filteredItems.bind({ [weak self] (items) in
             DispatchQueue.main.async {
+                self?.tableView.setContentOffset(.zero, animated: false)
                 self?.tableView.reloadData()
             }
         })
+
+        viewModel.isSynchronizing.bind { [weak self]  (value) in
+            DispatchQueue.main.async {
+                if value {
+                    self?.reloadButton?.customView?.infiniteRotate()
+                } else {
+                    self?.reloadButton?.customView?.removeAllAnimations()
+                }
+            }
+
+        }
     }
 
     // MARK: - Table view delegation
@@ -53,64 +75,39 @@ class ListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        cell.textLabel?.text = viewModel.filteredItems.value[indexPath.row].title
-        // Configure the cell...
-
+        if let itemCell = cell as? ItemTableViewCell {
+            if let itemViewModel = viewModel.getItemViewModel(atIndexPath: indexPath) {
+                itemCell.viewModel = itemViewModel
+            }
+        }
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let itemViewModel = viewModel.getItemViewModel(atIndexPath: indexPath) {
+            self.navigationController?.pushViewController(DetailsViewController(itemViewModel), animated: true)
+        }
+    }
 
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-     }
-     */
-
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-
-    /*
-     // MARK: - Navigation
-
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        /* let animation = AnimationFactory.makeFadeAnimation(duration: 0.5, delayFactor: 0.05)
+         let animator = Animator(animation: animation)
+         animator.animate(cell: cell, at: indexPath, in: tableView)*/
+       let animation = AnimationFactory.makeSlideIn(duration: 0.2, delayFactor: 0)
+        let animator = Animator(animation: animation)
+        animator.animate(cell: cell, at: indexPath, in: tableView)
+        /*  let animation = AnimationFactory.makeMoveUpWithFade(rowHeight: cell.frame.height, duration: 0.2, delayFactor: 0)
+         let animator = Animator(animation: animation)
+         animator.animate(cell: cell, at: indexPath, in: tableView)*/
+        
+    }
 
     // MARK: - Actions
 
     @objc func reloadAction() {
         self.viewModel.reloadAction()
     }
-    @objc func filterAction(sender:UIBarButtonItem) {
+    @objc func filterAction(sender: UIButton) {
         let alert = UIAlertController(title: "Please choose your categoy to filter", message: nil, preferredStyle: UIAlertController.Style.actionSheet)
         alert.isModalInPopover = true
         var pickerViewValues: [[String]] = [[String]]()
@@ -146,9 +143,9 @@ class ListTableViewController: UITableViewController {
         alert.addAction(cancelAction)
 
         if let presenter = alert.popoverPresentationController {
-            presenter.barButtonItem = sender
+            presenter.barButtonItem =  UIBarButtonItem(customView: sender)
         }
-        self.parent!.present(alert, animated: true, completion: {  })
+        self.present(alert, animated: true, completion: {  })
     }
 }
 

@@ -15,7 +15,8 @@ class ItemViewModel {
     var smallImageUrl :  String?
     var largeImageUrl :  String?
     var isUrgent: Bool
-
+    var price: Float
+    var creation_date: Date?
     init(_ item:Item, _ category: CategoryViewModel) {
         self.title = item.getTitle()
         self.id = item.getId()
@@ -24,5 +25,20 @@ class ItemViewModel {
         self.isUrgent = item.isUrgent()
         self.smallImageUrl = item.getSmallImageUrl()
         self.largeImageUrl = item.getLargeImageUrl()
+        self.creation_date = item.getCreationDate()
+        self.price = item.getPrice()
+    }
+
+    func getCreationDate() -> String? {
+        var dateString: String? = nil
+        if let date = creation_date {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .short
+            dateFormatter.timeStyle = .short
+            dateFormatter.doesRelativeDateFormatting = true
+            dateString = dateFormatter.string(from: date)
+        }
+        return dateString
+
     }
 }
