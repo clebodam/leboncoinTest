@@ -26,9 +26,7 @@ class NetWorkManager<I:ItemProtocol,C:CategoryProtocol>: NetWorkManagerProtocol 
     var sessionCfg: URLSessionConfiguration
     private var dao: DaoProtocol?
 
-
     private let ITEMS_URL = "https://raw.githubusercontent.com/leboncoin/paperclip/master/listing.json"
-
     private let CATEGORIES_URL = "https://raw.githubusercontent.com/leboncoin/paperclip/master/categories.json"
     private var _currentTask: URLSessionDataTask?
 
@@ -39,9 +37,7 @@ class NetWorkManager<I:ItemProtocol,C:CategoryProtocol>: NetWorkManagerProtocol 
     }
 
     internal  func get<T>(_ type: T.Type, route: String, callback: ((Result<T, Error>) -> Void)?) where T: Decodable {
-
         if let task = _currentTask { task.cancel() }
-
         if let url = URL(string: route) {
             _currentTask = session.dataTask(with: url, completionHandler: { (data, response, error) in
                 if let e = error {
@@ -127,19 +123,11 @@ public class Reachability {
                 SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
             }
         }
-
         var flags: SCNetworkReachabilityFlags = SCNetworkReachabilityFlags(rawValue: 0)
         if SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) == false {
             return false
         }
 
-        /* ------- Only Working for WIFI
-         let isReachable = flags == .reachable
-         let needsConnection = flags == .connectionRequired
-         return isReachable && !needsConnection
-         */
-
-        // Working for Cellular and WIFI
         let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
         let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
         let ret = (isReachable && !needsConnection)
