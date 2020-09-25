@@ -8,6 +8,8 @@
 import Foundation
 
 protocol SynchroProtocol {
+    var dao: DaoProtocol? { get set }
+    var netWorkManager: NetWorkManagerProtocol? { get set }
     func doSynchro(_ completion: @escaping ([ItemProtocol],[CategoryProtocol]) -> ())
     func register(netWorkManager: NetWorkManagerProtocol, dao: DaoProtocol)
 }
@@ -19,8 +21,8 @@ class SynchroManager<I:ItemProtocol,C:CategoryProtocol>: SynchroProtocol {
 
     private  let SYNCHRO_DELAY_SECONDS = 20
     private  let LAST_SYNCHRO_KEY = "LAST_SYNCHRO_KEY"
-    private var dao: DaoProtocol?
-    private var netWorkManager: NetWorkManagerProtocol?
+    internal var dao: DaoProtocol?
+    internal var netWorkManager: NetWorkManagerProtocol?
 
     private func lastSynchroDate() -> Date {
         return (UserDefaults.standard.value(forKey: LAST_SYNCHRO_KEY) as? Date) ?? Date(timeIntervalSince1970: 0)
@@ -35,16 +37,14 @@ class SynchroManager<I:ItemProtocol,C:CategoryProtocol>: SynchroProtocol {
     private func shouldDoSynchro() -> Bool {
         return Date(timeIntervalSinceNow: TimeInterval(SYNCHRO_DELAY_SECONDS)) >= lastSynchroDate()
     }
-
+    
     func doSynchro(_ completion: @escaping ([ItemProtocol],[CategoryProtocol]) -> ()) {
         if Reachability.isConnectedToNetwork() && shouldDoSynchro()  {
             // get new data, write it and use it
-            netWorkManager?.getData { [weak self] in
-                if let items = self?.dao?.getItemsData(),
-                   let categories = self?.dao?.getCategoriesData() {
-                    completion(items, categories)
-                    self?.saveLastSynchroDate()
-                }
+            netWorkManager?.getData { [weak self]  items , categories in
+                self?.dao?.saveItemsData(items: items)
+                self?.dao?.saveCategoriesData(items: categories)
+                completion(items, categories)
             }
         } else {
             // return data from storage
@@ -57,7 +57,6 @@ class SynchroManager<I:ItemProtocol,C:CategoryProtocol>: SynchroProtocol {
 
     func register(netWorkManager: NetWorkManagerProtocol, dao: DaoProtocol) {
         self.netWorkManager = netWorkManager
-        self.netWorkManager?.registerDao(dao)
         self.dao = dao
     }
 }

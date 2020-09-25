@@ -16,15 +16,14 @@ enum NetworkError: Error {
 }
 
 protocol NetWorkManagerProtocol {
-    func getData(completion: @escaping ()->())
-    func registerDao(_ dao: DaoProtocol)
+    func getData(completion: @escaping ([ItemProtocol],[CategoryProtocol])->())
 }
 
 class NetWorkManager<I:ItemProtocol,C:CategoryProtocol>: NetWorkManagerProtocol {
 
     var session: URLSession
     var sessionCfg: URLSessionConfiguration
-    private var dao: DaoProtocol?
+
 
     private let ITEMS_URL = "https://raw.githubusercontent.com/leboncoin/paperclip/master/listing.json"
     private let CATEGORIES_URL = "https://raw.githubusercontent.com/leboncoin/paperclip/master/categories.json"
@@ -50,7 +49,7 @@ class NetWorkManager<I:ItemProtocol,C:CategoryProtocol>: NetWorkManagerProtocol 
                                     print(String(data: data, encoding: .utf8) ?? "")
                                     let decoder = JSONDecoder()
                                     decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
-                                   let model = try decoder.decode(type, from: data)
+                                    let model = try decoder.decode(type, from: data)
                                     callback?(Result.success(model))
                                 } catch {
                                     print(error)
@@ -75,36 +74,34 @@ class NetWorkManager<I:ItemProtocol,C:CategoryProtocol>: NetWorkManagerProtocol 
         }
     }
 
-   private func getItems(callback: ((Result<[I], Error>) -> Void)?) {
-       self.get([I].self, route: ITEMS_URL, callback: callback )
+    public func getItems(callback: ((Result<[I], Error>) -> Void)?) {
+        self.get([I].self, route: ITEMS_URL, callback: callback )
     }
 
-    private func getCategories(callback: ((Result<[C], Error>) -> Void)?) {
+    public func getCategories(callback: ((Result<[C], Error>) -> Void)?) {
         self.get([C].self, route: CATEGORIES_URL, callback: callback )
-     }
+    }
 
-   public  func getData(completion: @escaping ()->()) {
+    public  func getData(completion: @escaping ([ItemProtocol],[CategoryProtocol]) -> () ){
+        var categories = [CategoryProtocol]()
+        var items = [ItemProtocol]()
         getCategories { (catResult) in
             switch catResult {
             case .success(let response):
-                self.dao?.saveCategoriesData(items: response)
+                categories = response
             case .failure:
-               print("fetch categories fail from intenet")
+                print("fetch categories fail from intenet")
             }
             self.getItems { (ItemsResult) in
                 switch ItemsResult {
                 case .success(let response):
-                    self.dao?.saveItemsData(items: response)
+                    items = response
                 case .failure:
-                   print("fetch items fail from intenet")
+                    print("fetch items fail from intenet")
                 }
-                completion()
+                completion(items, categories)
             }
         }
-    }
-
-    public func registerDao(_ dao: DaoProtocol) {
-        self.dao = dao
     }
 }
 

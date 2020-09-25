@@ -11,7 +11,6 @@
 		6D796A31251A3DED00CCF94F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796A30251A3DED00CCF94F /* SceneDelegate.swift */; };
 		6D796A35251A3DF000CCF94F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D796A34251A3DF000CCF94F /* Assets.xcassets */; };
 		6D796A38251A3DF000CCF94F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D796A36251A3DF000CCF94F /* LaunchScreen.storyboard */; };
-		6D796A43251A3DF000CCF94F /* TestLeBonCoinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796A42251A3DF000CCF94F /* TestLeBonCoinTests.swift */; };
 		6D796A4E251A3DF000CCF94F /* TestLeBonCoinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796A4D251A3DF000CCF94F /* TestLeBonCoinUITests.swift */; };
 		6D796A6F251A785C00CCF94F /* UIWindow+init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796A6E251A785C00CCF94F /* UIWindow+init.swift */; };
 		6D796A7A251A7AEC00CCF94F /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796A79251A7AEC00CCF94F /* ListTableViewController.swift */; };
@@ -33,6 +32,25 @@
 		6DCF08B3251CB97000928A7F /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF08B2251CB97000928A7F /* Animator.swift */; };
 		6DCF08B9251CBEE900928A7F /* UIColor+random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF08B8251CBEE900928A7F /* UIColor+random.swift */; };
 		6DCF08C0251D393300928A7F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF08BF251D393200928A7F /* Constants.swift */; };
+		6DE32743251E0522007FFAB5 /* SynchroManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796ADF251B6D3900CCF94F /* SynchroManager.swift */; };
+		6DE32747251E0525007FFAB5 /* NetWorkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796ABB251B30BF00CCF94F /* NetWorkService.swift */; };
+		6DE3274B251E0529007FFAB5 /* Dao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796AD2251B418F00CCF94F /* Dao.swift */; };
+		6DE3274F251E0537007FFAB5 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796A9A251A99D700CCF94F /* ItemViewModel.swift */; };
+		6DE32753251E053B007FFAB5 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796AA0251A9A5000CCF94F /* CategoryViewModel.swift */; };
+		6DE32757251E0542007FFAB5 /* ListTableViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796A93251A8DE400CCF94F /* ListTableViewViewModel.swift */; };
+		6DE3275B251E0557007FFAB5 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796AC5251B3C6900CCF94F /* Item.swift */; };
+		6DE3275F251E055A007FFAB5 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796AD8251B68E700CCF94F /* Category.swift */; };
+		6DE32764251E05A1007FFAB5 /* DaoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE32763251E05A1007FFAB5 /* DaoTests.swift */; };
+		6DE3276A251E06A4007FFAB5 /* TestItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE32769251E06A4007FFAB5 /* TestItem.swift */; };
+		6DE32771251E09F8007FFAB5 /* DateFormatter+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796ACB251B3FAA00CCF94F /* DateFormatter+extension.swift */; };
+		6DE32775251E0A07007FFAB5 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796A8D251A8CAC00CCF94F /* Dynamic.swift */; };
+		6DE3277A251E0A45007FFAB5 /* TestCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE32779251E0A45007FFAB5 /* TestCategory.swift */; };
+		6DE3277F251E1259007FFAB5 /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE3277E251E1259007FFAB5 /* NetworkTests.swift */; };
+		6DE327A5251E1952007FFAB5 /* SynchroTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE327A4251E1952007FFAB5 /* SynchroTest.swift */; };
+		6DE327AA251E1971007FFAB5 /* TestDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE327A9251E1971007FFAB5 /* TestDao.swift */; };
+		6DE327AF251E1B15007FFAB5 /* TestNetWorkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE327AE251E1B15007FFAB5 /* TestNetWorkManager.swift */; };
+		6DE327B4251E1D2F007FFAB5 /* TestSynchroManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE327B3251E1D2F007FFAB5 /* TestSynchroManager.swift */; };
+		6DE327C1251E1EFE007FFAB5 /* ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE327C0251E1EFE007FFAB5 /* ViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +78,6 @@
 		6D796A37251A3DF000CCF94F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6D796A39251A3DF000CCF94F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D796A3E251A3DF000CCF94F /* TestLeBonCoinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestLeBonCoinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6D796A42251A3DF000CCF94F /* TestLeBonCoinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLeBonCoinTests.swift; sourceTree = "<group>"; };
 		6D796A44251A3DF000CCF94F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D796A49251A3DF000CCF94F /* TestLeBonCoinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestLeBonCoinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D796A4D251A3DF000CCF94F /* TestLeBonCoinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLeBonCoinUITests.swift; sourceTree = "<group>"; };
@@ -85,6 +102,15 @@
 		6DCF08B2251CB97000928A7F /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		6DCF08B8251CBEE900928A7F /* UIColor+random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+random.swift"; sourceTree = "<group>"; };
 		6DCF08BF251D393200928A7F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		6DE32763251E05A1007FFAB5 /* DaoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaoTests.swift; sourceTree = "<group>"; };
+		6DE32769251E06A4007FFAB5 /* TestItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestItem.swift; sourceTree = "<group>"; };
+		6DE32779251E0A45007FFAB5 /* TestCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCategory.swift; sourceTree = "<group>"; };
+		6DE3277E251E1259007FFAB5 /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
+		6DE327A4251E1952007FFAB5 /* SynchroTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchroTest.swift; sourceTree = "<group>"; };
+		6DE327A9251E1971007FFAB5 /* TestDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDao.swift; sourceTree = "<group>"; };
+		6DE327AE251E1B15007FFAB5 /* TestNetWorkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNetWorkManager.swift; sourceTree = "<group>"; };
+		6DE327B3251E1D2F007FFAB5 /* TestSynchroManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSynchroManager.swift; sourceTree = "<group>"; };
+		6DE327C0251E1EFE007FFAB5 /* ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,7 +181,11 @@
 		6D796A41251A3DF000CCF94F /* TestLeBonCoinTests */ = {
 			isa = PBXGroup;
 			children = (
-				6D796A42251A3DF000CCF94F /* TestLeBonCoinTests.swift */,
+				6DE32768251E067B007FFAB5 /* TestsUtils */,
+				6DE32763251E05A1007FFAB5 /* DaoTests.swift */,
+				6DE3277E251E1259007FFAB5 /* NetworkTests.swift */,
+				6DE327A4251E1952007FFAB5 /* SynchroTest.swift */,
+				6DE327C0251E1EFE007FFAB5 /* ViewModelTests.swift */,
 				6D796A44251A3DF000CCF94F /* Info.plist */,
 			);
 			path = TestLeBonCoinTests;
@@ -252,6 +282,18 @@
 				6DCF08BF251D393200928A7F /* Constants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		6DE32768251E067B007FFAB5 /* TestsUtils */ = {
+			isa = PBXGroup;
+			children = (
+				6DE32769251E06A4007FFAB5 /* TestItem.swift */,
+				6DE327A9251E1971007FFAB5 /* TestDao.swift */,
+				6DE327AE251E1B15007FFAB5 /* TestNetWorkManager.swift */,
+				6DE32779251E0A45007FFAB5 /* TestCategory.swift */,
+				6DE327B3251E1D2F007FFAB5 /* TestSynchroManager.swift */,
+			);
+			path = TestsUtils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -412,7 +454,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D796A43251A3DF000CCF94F /* TestLeBonCoinTests.swift in Sources */,
+				6DE32775251E0A07007FFAB5 /* Dynamic.swift in Sources */,
+				6DE32764251E05A1007FFAB5 /* DaoTests.swift in Sources */,
+				6DE327C1251E1EFE007FFAB5 /* ViewModelTests.swift in Sources */,
+				6DE327B4251E1D2F007FFAB5 /* TestSynchroManager.swift in Sources */,
+				6DE327A5251E1952007FFAB5 /* SynchroTest.swift in Sources */,
+				6DE3274B251E0529007FFAB5 /* Dao.swift in Sources */,
+				6DE3277A251E0A45007FFAB5 /* TestCategory.swift in Sources */,
+				6DE32757251E0542007FFAB5 /* ListTableViewViewModel.swift in Sources */,
+				6DE327AF251E1B15007FFAB5 /* TestNetWorkManager.swift in Sources */,
+				6DE3276A251E06A4007FFAB5 /* TestItem.swift in Sources */,
+				6DE32747251E0525007FFAB5 /* NetWorkService.swift in Sources */,
+				6DE32743251E0522007FFAB5 /* SynchroManager.swift in Sources */,
+				6DE3275B251E0557007FFAB5 /* Item.swift in Sources */,
+				6DE3275F251E055A007FFAB5 /* Category.swift in Sources */,
+				6DE3274F251E0537007FFAB5 /* ItemViewModel.swift in Sources */,
+				6DE32753251E053B007FFAB5 /* CategoryViewModel.swift in Sources */,
+				6DE3277F251E1259007FFAB5 /* NetworkTests.swift in Sources */,
+				6DE32771251E09F8007FFAB5 /* DateFormatter+extension.swift in Sources */,
+				6DE327AA251E1971007FFAB5 /* TestDao.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,7 +562,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -557,7 +617,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
