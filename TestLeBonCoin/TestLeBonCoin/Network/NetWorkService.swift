@@ -15,28 +15,27 @@ enum NetworkError: Error {
     case serialization(error: Error)
 }
 
-protocol NetworkService {
-    func get<T>(_ type: T.Type, route: String, callback: ((Result<T, Error>) -> Void)?) where T: Decodable
+protocol NetWorkManagerProtocol {
+    func getData(completion: @escaping ()->())
+    func registerDao(_ dao: DaoProtocol)
 }
 
-class NetWorkManager: NetworkService {
+class NetWorkManager<I:ItemProtocol,C:CategoryProtocol>: NetWorkManagerProtocol {
 
     var session: URLSession
     var sessionCfg: URLSessionConfiguration
-    private var daoItems: Dao<Item>
-    private var daoCategories: Dao<Category>
+    private var dao: DaoProtocol?
+
 
     private let ITEMS_URL = "https://raw.githubusercontent.com/leboncoin/paperclip/master/listing.json"
 
     private let CATEGORIES_URL = "https://raw.githubusercontent.com/leboncoin/paperclip/master/categories.json"
     private var _currentTask: URLSessionDataTask?
 
-    init(daoItems: Dao<Item>, daoCategories: Dao<Category>) {
+    init() {
         sessionCfg = URLSessionConfiguration.default
         sessionCfg.timeoutIntervalForRequest = 10.0
         session = URLSession(configuration: sessionCfg)
-        self.daoItems = daoItems
-        self.daoCategories = daoCategories
     }
 
     internal  func get<T>(_ type: T.Type, route: String, callback: ((Result<T, Error>) -> Void)?) where T: Decodable {
@@ -80,32 +79,36 @@ class NetWorkManager: NetworkService {
         }
     }
 
-   private func getItems(callback: ((Result<[Item], Error>) -> Void)?) {
-       self.get([Item].self, route: ITEMS_URL, callback: callback )
+   private func getItems(callback: ((Result<[I], Error>) -> Void)?) {
+       self.get([I].self, route: ITEMS_URL, callback: callback )
     }
 
-    private func getCategories(callback: ((Result<[Category], Error>) -> Void)?) {
-        self.get([Category].self, route: CATEGORIES_URL, callback: callback )
+    private func getCategories(callback: ((Result<[C], Error>) -> Void)?) {
+        self.get([C].self, route: CATEGORIES_URL, callback: callback )
      }
 
    public  func getData(completion: @escaping ()->()) {
         getCategories { (catResult) in
             switch catResult {
             case .success(let response):
-                self.daoCategories.saveData(items: response)
+                self.dao?.saveCategoriesData(items: response)
             case .failure:
                print("fetch categories fail from intenet")
             }
             self.getItems { (ItemsResult) in
                 switch ItemsResult {
                 case .success(let response):
-                    self.daoItems.saveData(items: response)
+                    self.dao?.saveItemsData(items: response)
                 case .failure:
                    print("fetch items fail from intenet")
                 }
                 completion()
             }
         }
+    }
+
+    public func registerDao(_ dao: DaoProtocol) {
+        self.dao = dao
     }
 }
 

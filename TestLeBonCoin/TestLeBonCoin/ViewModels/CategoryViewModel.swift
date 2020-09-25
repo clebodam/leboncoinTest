@@ -19,7 +19,7 @@ class CategoryViewModel :Hashable {
     var id :  Int
     var name : String
 
-    init(_ category: Category) {
+    init(_ category: CategoryProtocol) {
         self.name = category.getName()
         self.id = category.getId()
     }

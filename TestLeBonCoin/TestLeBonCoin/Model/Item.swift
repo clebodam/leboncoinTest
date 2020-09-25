@@ -15,10 +15,21 @@ fileprivate enum CodingKeys: String, CodingKey {
     case price
     case images_url
     case creation_date
-    case is_urgent 
-
+    case is_urgent
 }
-class Item: Codable {
+public protocol ItemProtocol: Codable {
+     func getId() -> Int
+     func getCategoryId() -> Int
+     func getTitle() -> String
+     func getDescription() -> String
+     func getPrice() -> Float
+     func getLargeImageUrl() -> String?
+     func getSmallImageUrl() -> String?
+     func getCreationDate() -> Date?
+     func isUrgent() -> Bool
+}
+
+class Item: ItemProtocol {
     private var id: Int?
     private var category_id: Int?
     private var title: String?

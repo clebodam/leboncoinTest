@@ -17,18 +17,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TestLeBonCoin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHm-Dd-zSE">
-                                <rect key="frame" x="149.5" y="442.5" width="115" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="xpN-c5-fdl">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="NHm-Dd-zSE" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="OKP-A5-GgH"/>
-                            <constraint firstItem="NHm-Dd-zSE" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="uiq-CC-tJP"/>
+                            <constraint firstItem="xpN-c5-fdl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XTI-um-tMd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xpN-c5-fdl" secondAttribute="bottom" id="gNo-kh-kve"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xpN-c5-fdl" secondAttribute="trailing" id="wKh-JA-rDk"/>
+                            <constraint firstItem="xpN-c5-fdl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="wSm-Co-NSU"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -38,6 +37,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="splash" width="341" height="341"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

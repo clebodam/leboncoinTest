@@ -8,34 +8,41 @@
 import UIKit
 
 class ListTableViewController: UITableViewController {
+    // MARK: - PROPERTIES
     var filterButton: UIBarButtonItem?
     var reloadButton: UIBarButtonItem?
-    var viewModel = ListTableViewViewModel()
+    var viewModel = ListTableViewViewModel<Item,Category>()
 
-
+    // MARK: - UI SETUP
     override func viewDidLoad() {
+
         super.viewDidLoad()
+        self.view.backgroundColor = .white
+
+        // register Synchronization to ViewModel
+        viewModel.register(synchroManager: SynchroManager<Item,Category>())
+        // bar items setup
 
         let button = UIButton()
         button.addTarget(self, action: #selector(filterAction(sender:)), for: .touchUpInside)
         button.setImage(UIImage(named: "filter"), for: UIControl.State())
         self.filterButton = UIBarButtonItem(customView: button)
-
         let button1 = UIButton()
         button1.addTarget(self, action: #selector(reloadAction), for: .touchUpInside)
         button1.setImage(UIImage(named: "refresh"), for: UIControl.State())
         self.reloadButton = UIBarButtonItem(customView: button1)
         self.navigationItem.leftBarButtonItem = self.reloadButton
         self.navigationItem.rightBarButtonItem = self.filterButton
+        // table View setup
         self.tableView.register(ItemTableViewCell.self,forCellReuseIdentifier: "reuseIdentifier")
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 150
         self.tableView.separatorStyle = .none
         bindViewModel()
-
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.barTintColor = .white
         reloadAction()
     }
 
@@ -46,7 +53,6 @@ class ListTableViewController: UITableViewController {
                 self?.tableView.reloadData()
             }
         })
-
         viewModel.isSynchronizing.bind { [weak self]  (value) in
             DispatchQueue.main.async {
                 if value {
@@ -55,11 +61,10 @@ class ListTableViewController: UITableViewController {
                     self?.reloadButton?.customView?.removeAllAnimations()
                 }
             }
-
         }
     }
 
-    // MARK: - Table view delegation
+    // MARK: - TableView delegation
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -70,7 +75,6 @@ class ListTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return viewModel.filteredItems.value.count
     }
-
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
@@ -90,16 +94,9 @@ class ListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        /* let animation = AnimationFactory.makeFadeAnimation(duration: 0.5, delayFactor: 0.05)
-         let animator = Animator(animation: animation)
-         animator.animate(cell: cell, at: indexPath, in: tableView)*/
-       let animation = AnimationFactory.makeSlideIn(duration: 0.2, delayFactor: 0)
+       let animation = AnimationFactory.slideIn(duration: 0.2, delayFactor: 0)
         let animator = Animator(animation: animation)
         animator.animate(cell: cell, at: indexPath, in: tableView)
-        /*  let animation = AnimationFactory.makeMoveUpWithFade(rowHeight: cell.frame.height, duration: 0.2, delayFactor: 0)
-         let animator = Animator(animation: animation)
-         animator.animate(cell: cell, at: indexPath, in: tableView)*/
-        
     }
 
     // MARK: - Actions
@@ -107,6 +104,7 @@ class ListTableViewController: UITableViewController {
     @objc func reloadAction() {
         self.viewModel.reloadAction()
     }
+    
     @objc func filterAction(sender: UIButton) {
         let alert = UIAlertController(title: "Please choose your categoy to filter", message: nil, preferredStyle: UIAlertController.Style.actionSheet)
         alert.isModalInPopover = true

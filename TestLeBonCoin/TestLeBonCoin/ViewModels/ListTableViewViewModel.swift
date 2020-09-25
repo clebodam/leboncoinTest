@@ -7,13 +7,21 @@
 
 import Foundation
 
-class ListTableViewViewModel {
-    var categories: [CategoryViewModel] =  [CategoryViewModel]()
+class ListTableViewViewModel<I:ItemProtocol,C:CategoryProtocol> {
     var filterCategory: CategoryViewModel?
     var isSynchronizing = Dynamic(false)
-    private var items = [ItemViewModel]()
     var filteredItems: Dynamic<[ItemViewModel]> = Dynamic([ItemViewModel]())
+    
+    private var items = [ItemViewModel]()
+    private var categories: [CategoryViewModel] =  [CategoryViewModel]()
+    private var synchroManager: SynchroProtocol?
 
+
+    func register(synchroManager: SynchroProtocol) {
+        self.synchroManager = synchroManager
+        self.synchroManager?.register(netWorkManager: NetWorkManager<I,C>(), dao: Dao<I,C>())
+    }
+    
     func filter() {
         var allItems = items
         if let filterCategory = filterCategory  {
@@ -25,21 +33,21 @@ class ListTableViewViewModel {
         let urgentItems = allItems.filter {
             $0.isUrgent
         }.sorted {
-            $0.creation_date ?? Date() < $1.creation_date ?? Date()
+            $0.creation_date ?? Date() > $1.creation_date ?? Date()
         }
         let nonUrgentItems = allItems.filter {
             !$0.isUrgent
         }.sorted {
-            $0.creation_date ?? Date() < $1.creation_date ?? Date()
+            $0.creation_date ?? Date() > $1.creation_date ?? Date()
         }
         sortedItems.append(contentsOf: urgentItems)
         sortedItems.append(contentsOf: nonUrgentItems)
         filteredItems.value = sortedItems
     }
 
-    func getData(_ completion:  @escaping ([Item],[Category]) -> ()) {
-        isSynchronizing.value = true
-        SyncnhroManager.instance.doSynchro { items, categories in
+    func getData(_ completion:  @escaping ([ItemProtocol],[CategoryProtocol]) -> ()) {
+        self.isSynchronizing.value = true
+        synchroManager?.doSynchro { items, categories in
             completion(items, categories)
             self.isSynchronizing.value = false
         }
@@ -52,7 +60,7 @@ class ListTableViewViewModel {
         }
     }
 
-    func populate(_ rawItems: [Item], _ rawCategories: [Category]) {
+    func populate(_ rawItems: [ItemProtocol], _ rawCategories: [CategoryProtocol]) {
         categories.removeAll()
         items.removeAll()
         for category in rawCategories {

@@ -10,10 +10,14 @@ import Foundation
 fileprivate enum CodingKeys: String, CodingKey {
     case id
     case name
-
-
 }
-class Category: Codable {
+
+public protocol CategoryProtocol: Codable {
+     func getName() -> String
+     func getId() -> Int
+}
+
+class Category: CategoryProtocol {
     private var id: Int?
     private var name: String?
 

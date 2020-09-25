@@ -8,7 +8,7 @@
 import UIKit
 
 class ItemTableViewCell : UITableViewCell {
-
+    // MARK: - PROPERTIES
     var viewModel : ItemViewModel? {
         didSet {
             itemNameLabel.text = viewModel?.title
@@ -91,9 +91,11 @@ class ItemTableViewCell : UITableViewCell {
         return imgView
     }()
 
+    // MARK: - INIT
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
+        self.backgroundColor = .white
         addSubview(itemImage)
         addSubview(urgentImage)
         addSubview(itemNameLabel)
