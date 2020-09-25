@@ -16,7 +16,7 @@ enum NetworkError: Error {
 }
 
 protocol NetWorkManagerProtocol {
-    func getData(completion: @escaping ([ItemProtocol],[CategoryProtocol])->())
+    func getData(completion: @escaping CompletionBlock)
 }
 
 class NetWorkManager<I:ItemProtocol,C:CategoryProtocol>: NetWorkManagerProtocol {
@@ -82,7 +82,7 @@ class NetWorkManager<I:ItemProtocol,C:CategoryProtocol>: NetWorkManagerProtocol 
         self.get([C].self, route: CATEGORIES_URL, callback: callback )
     }
 
-    public  func getData(completion: @escaping ([ItemProtocol],[CategoryProtocol]) -> () ){
+    public  func getData(completion: @escaping CompletionBlock){
         var categories = [CategoryProtocol]()
         var items = [ItemProtocol]()
         getCategories { (catResult) in

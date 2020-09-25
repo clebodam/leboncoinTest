@@ -11,6 +11,7 @@ func sizeWithRatio( _ size: CGFloat) -> CGFloat{
     return (UIScreen.main.bounds.width / 320) * size
 }
 
+typealias CompletionBlock = ([ItemProtocol],[CategoryProtocol]) -> ()
 let marginSize = sizeWithRatio(10)
 let paddingSize = sizeWithRatio(15)
 let imageSize = sizeWithRatio(80)
