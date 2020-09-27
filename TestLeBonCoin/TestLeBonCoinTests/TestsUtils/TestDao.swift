@@ -33,6 +33,11 @@ class TestDao:DaoProtocol {
        return  self.categories
     }
 
+    func reset() {
+        // do Nothing
+    }
+
+
 
 
 

@@ -51,6 +51,9 @@
 		6DE327AF251E1B15007FFAB5 /* TestNetWorkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE327AE251E1B15007FFAB5 /* TestNetWorkManager.swift */; };
 		6DE327B4251E1D2F007FFAB5 /* TestSynchroManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE327B3251E1D2F007FFAB5 /* TestSynchroManager.swift */; };
 		6DE327C1251E1EFE007FFAB5 /* ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE327C0251E1EFE007FFAB5 /* ViewModelTests.swift */; };
+		6DE327CE2520A480007FFAB5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF08BF251D393200928A7F /* Constants.swift */; };
+		6DE327F92520E605007FFAB5 /* CategoryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE327F82520E605007FFAB5 /* CategoryViewModelTests.swift */; };
+		6DE328012520E6B1007FFAB5 /* ItemViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE328002520E6B1007FFAB5 /* ItemViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +114,8 @@
 		6DE327AE251E1B15007FFAB5 /* TestNetWorkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNetWorkManager.swift; sourceTree = "<group>"; };
 		6DE327B3251E1D2F007FFAB5 /* TestSynchroManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSynchroManager.swift; sourceTree = "<group>"; };
 		6DE327C0251E1EFE007FFAB5 /* ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTests.swift; sourceTree = "<group>"; };
+		6DE327F82520E605007FFAB5 /* CategoryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModelTests.swift; sourceTree = "<group>"; };
+		6DE328002520E6B1007FFAB5 /* ItemViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +191,8 @@
 				6DE3277E251E1259007FFAB5 /* NetworkTests.swift */,
 				6DE327A4251E1952007FFAB5 /* SynchroTest.swift */,
 				6DE327C0251E1EFE007FFAB5 /* ViewModelTests.swift */,
+				6DE327F82520E605007FFAB5 /* CategoryViewModelTests.swift */,
+				6DE328002520E6B1007FFAB5 /* ItemViewModelTests.swift */,
 				6D796A44251A3DF000CCF94F /* Info.plist */,
 			);
 			path = TestLeBonCoinTests;
@@ -459,6 +466,7 @@
 				6DE327C1251E1EFE007FFAB5 /* ViewModelTests.swift in Sources */,
 				6DE327B4251E1D2F007FFAB5 /* TestSynchroManager.swift in Sources */,
 				6DE327A5251E1952007FFAB5 /* SynchroTest.swift in Sources */,
+				6DE327F92520E605007FFAB5 /* CategoryViewModelTests.swift in Sources */,
 				6DE3274B251E0529007FFAB5 /* Dao.swift in Sources */,
 				6DE3277A251E0A45007FFAB5 /* TestCategory.swift in Sources */,
 				6DE32757251E0542007FFAB5 /* ListTableViewViewModel.swift in Sources */,
@@ -468,7 +476,9 @@
 				6DE32743251E0522007FFAB5 /* SynchroManager.swift in Sources */,
 				6DE3275B251E0557007FFAB5 /* Item.swift in Sources */,
 				6DE3275F251E055A007FFAB5 /* Category.swift in Sources */,
+				6DE328012520E6B1007FFAB5 /* ItemViewModelTests.swift in Sources */,
 				6DE3274F251E0537007FFAB5 /* ItemViewModel.swift in Sources */,
+				6DE327CE2520A480007FFAB5 /* Constants.swift in Sources */,
 				6DE32753251E053B007FFAB5 /* CategoryViewModel.swift in Sources */,
 				6DE3277F251E1259007FFAB5 /* NetworkTests.swift in Sources */,
 				6DE32771251E09F8007FFAB5 /* DateFormatter+extension.swift in Sources */,

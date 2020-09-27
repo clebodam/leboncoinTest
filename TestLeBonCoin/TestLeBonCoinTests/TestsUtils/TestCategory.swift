@@ -8,12 +8,32 @@
 import Foundation
 
 class TestCategory: CategoryProtocol {
+    private var id: Int
+    private var name: String
+    init() {
+        id = Int.random(in: 0..<20)
+        name = "name of \(id)"
+    }
     func getName() -> String {
-        return "name of \(getId())"
+        return name
     }
 
     func getId() -> Int {
-        return Int.random(in: 1...20)
+        return id
+    }
+
+    init(id:Int) {
+        self.id = id
+        name = "name of \(id)"
+    }
+
+    static func createUniqCategories(count:Int) -> [TestCategory] {
+        var categories = [TestCategory]()
+        for i in 0...20 {
+            let cat = TestCategory(id:i)
+            categories.append(cat)
+        }
+        return categories
     }
 
 

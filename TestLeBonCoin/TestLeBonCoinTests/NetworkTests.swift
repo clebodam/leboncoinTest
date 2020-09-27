@@ -24,13 +24,24 @@ class NetworkTests: XCTestCase {
     func testFailBadRoute() throws {
         let nwManager = NetWorkManager<TestItem,TestCategory>()
         let testFailExpectation = expectation(description: "testFailExpectation")
-
-        nwManager.get([TestItem].self, route: "https://www.google.fr") { result in
+        let url = ""
+        nwManager.get([TestItem].self, route: url) { result in
             switch result {
             case .success:
                XCTAssertTrue(false)
-            case .failure:
-            XCTAssertTrue(true)
+            case .failure(let error) :
+                if let error = error as? NetworkError {
+                    switch error {
+                    case .badUrl:
+                        XCTAssertTrue(true)
+                    default:
+                        XCTAssertTrue(false)
+                    }
+
+                } else {
+                    XCTAssertTrue(false)
+                }
+
             }
             testFailExpectation.fulfill()
         }
@@ -50,8 +61,18 @@ class NetworkTests: XCTestCase {
             switch result {
             case .success:
                XCTAssertTrue(false)
-            case .failure:
-            XCTAssertTrue(true)
+            case .failure(let error):
+                if let error = error as? NetworkError {
+                    switch error {
+                    case .serialization:
+                        XCTAssertTrue(true)
+                    default:
+                        XCTAssertTrue(false)
+                    }
+
+                } else {
+                    XCTAssertTrue(false)
+                }
             }
             testFailExpectation.fulfill()
         }

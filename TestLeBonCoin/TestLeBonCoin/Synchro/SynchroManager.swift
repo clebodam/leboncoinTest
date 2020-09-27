@@ -12,6 +12,20 @@ protocol SynchroProtocol {
     var netWorkManager: NetWorkManagerProtocol? { get set }
     func doSynchro(_ completion: @escaping CompletionBlock)
     func register(netWorkManager: NetWorkManagerProtocol, dao: DaoProtocol)
+    func getTimeProvider() -> TimeProvider
+}
+
+class TimeProvider {
+
+    var delay = TimeInterval(0)
+    init(_ delay: TimeInterval) {
+        self.delay = delay
+    }
+
+    func now() -> Date {
+        return Date().addingTimeInterval(delay)
+    }
+
 }
 
 class SynchroManager<I:ItemProtocol,C:CategoryProtocol>: SynchroProtocol {
@@ -21,6 +35,7 @@ class SynchroManager<I:ItemProtocol,C:CategoryProtocol>: SynchroProtocol {
 
     private  let SYNCHRO_DELAY_SECONDS = 20
     private  let LAST_SYNCHRO_KEY = "LAST_SYNCHRO_KEY"
+    private let timeProvider = TimeProvider(0)
     internal var dao: DaoProtocol?
     internal var netWorkManager: NetWorkManagerProtocol?
 
@@ -29,13 +44,13 @@ class SynchroManager<I:ItemProtocol,C:CategoryProtocol>: SynchroProtocol {
     }
 
     private func saveLastSynchroDate() {
-        UserDefaults.standard.setValue(Date(), forKey: LAST_SYNCHRO_KEY)
+        UserDefaults.standard.setValue(getTimeProvider().now(), forKey: LAST_SYNCHRO_KEY)
         UserDefaults.standard.synchronize()
 
     }
 
-    private func shouldDoSynchro() -> Bool {
-        return lastSynchroDate().addingTimeInterval(TimeInterval(SYNCHRO_DELAY_SECONDS)) <= Date()
+    func shouldDoSynchro() -> Bool {
+        return lastSynchroDate().addingTimeInterval(TimeInterval(SYNCHRO_DELAY_SECONDS)) <= getTimeProvider().now()
     }
     
     func doSynchro(_ completion: @escaping CompletionBlock) {
@@ -62,4 +77,9 @@ class SynchroManager<I:ItemProtocol,C:CategoryProtocol>: SynchroProtocol {
         self.netWorkManager = netWorkManager
         self.dao = dao
     }
+
+    func getTimeProvider() -> TimeProvider {
+        return timeProvider
+    }
+
 }

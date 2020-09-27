@@ -12,7 +12,7 @@ class TestSynchroManager: SynchroProtocol {
     var dao: DaoProtocol?
 
     var netWorkManager: NetWorkManagerProtocol?
-
+    var delayForTimeProvider = 0
 
     init() {
         register(netWorkManager: TestNetWorkManager(), dao: TestDao())
@@ -25,7 +25,12 @@ class TestSynchroManager: SynchroProtocol {
 
     func register(netWorkManager: NetWorkManagerProtocol, dao: DaoProtocol) {
         self.dao = dao
+        self.dao?.reset()
         self.netWorkManager = netWorkManager
+    }
+
+    func getTimeProvider() -> TimeProvider {
+        return TimeProvider(TimeInterval(delayForTimeProvider))
     }
 
 

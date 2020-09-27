@@ -12,7 +12,6 @@ class ListTableViewController: UITableViewController {
     var filterButton: UIBarButtonItem?
     var reloadButton: UIBarButtonItem?
     var viewModel = ListTableViewViewModel<Item,Category>()
-
     // MARK: - UI SETUP
     override func viewDidLoad() {
 
@@ -20,9 +19,8 @@ class ListTableViewController: UITableViewController {
         self.view.backgroundColor = .white
 
         // register Synchronization to ViewModel
-        viewModel.register(synchroManager: SynchroManager<Item,Category>())
+        viewModel.register(synchroManager: SynchroManager<Item,Category>(), dao: Dao<Item,Category>(),networkManager: NetWorkManager<Item,Category>())
         // bar items setup
-
         let button = UIButton()
         button.addTarget(self, action: #selector(filterAction(sender:)), for: .touchUpInside)
         button.setImage(UIImage(named: "filter"), for: UIControl.State())
@@ -39,11 +37,12 @@ class ListTableViewController: UITableViewController {
         self.tableView.estimatedRowHeight = 150
         self.tableView.separatorStyle = .none
         bindViewModel()
+        reloadAction()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.barTintColor = .white
-        reloadAction()
+
     }
 
     func bindViewModel() {
@@ -94,7 +93,7 @@ class ListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-       let animation = AnimationFactory.slideIn(duration: 0.2, delayFactor: 0)
+        let animation = AnimationFactory.slideIn(duration: 0.2, delayFactor: 0)
         let animator = Animator(animation: animation)
         animator.animate(cell: cell, at: indexPath, in: tableView)
     }

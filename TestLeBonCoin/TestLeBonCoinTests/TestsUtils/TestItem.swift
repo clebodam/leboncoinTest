@@ -79,5 +79,22 @@ class TestItem: ItemProtocol {
         return  is_urgent!
     }
 
+    static func createItem(urgent:Bool, catId: Int) -> TestItem {
+        let item = TestItem()
+        item.is_urgent = urgent
+        item.category_id = catId
+        return item
+    }
+
+    static func createItems(urgent:Bool, count:Int,categoriesCount:Int) -> [TestItem] {
+        var items = [TestItem]()
+        for  i in 0...count {
+            items.append(createItem(urgent: urgent, catId: i%categoriesCount))
+        }
+        return items
+    }
+
+
+
 
 }

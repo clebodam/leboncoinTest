@@ -17,10 +17,12 @@ class ListTableViewViewModel<I:ItemProtocol,C:CategoryProtocol> {
     private var synchroManager: SynchroProtocol?
 
 
-    func register(synchroManager: SynchroProtocol) {
+    func register(synchroManager: SynchroProtocol, dao: DaoProtocol, networkManager: NetWorkManagerProtocol) {
         self.synchroManager = synchroManager
-        self.synchroManager?.register(netWorkManager: NetWorkManager<I,C>(), dao: Dao<I,C>())
+        self.synchroManager?.register(netWorkManager:networkManager, dao: dao)
     }
+
+    
     
     func filter() {
         var allItems = items
@@ -56,11 +58,17 @@ class ListTableViewViewModel<I:ItemProtocol,C:CategoryProtocol> {
     func  reloadAction() {
         filteredItems.value = [ItemViewModel]()
         getData { items, categories in
-            self.populate(items,categories)
+           _ = self.populateAndFilter(items,categories)
         }
     }
 
-    func populate(_ rawItems: [ItemProtocol], _ rawCategories: [CategoryProtocol]) {
+     func populateAndFilter(_ rawItems: [ItemProtocol], _ rawCategories: [CategoryProtocol])  -> [ItemViewModel]{
+        _ = populate(rawItems,rawCategories)
+        filter()
+        return filteredItems.value
+    }
+
+    func populate(_ rawItems: [ItemProtocol], _ rawCategories: [CategoryProtocol]) -> [ItemViewModel] {
         categories.removeAll()
         items.removeAll()
         for category in rawCategories {
@@ -75,7 +83,7 @@ class ListTableViewViewModel<I:ItemProtocol,C:CategoryProtocol> {
                 items.append(itemViewModel)
             }
         }
-        filter()
+        return items
     }
 
     func getCategories() -> [CategoryViewModel]? {

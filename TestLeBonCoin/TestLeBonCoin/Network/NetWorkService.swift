@@ -8,11 +8,11 @@
 import Foundation
 import SystemConfiguration
 enum NetworkError: Error {
-    case badUrl(url: String)
-    case invalidStatusCode(status: Int)
-    case invalidResponse(url: String)
-    case noData(url: String)
-    case serialization(error: Error)
+    case badUrl
+    case invalidStatusCode
+    case invalidResponse
+    case noData
+    case serialization
 }
 
 protocol NetWorkManagerProtocol {
@@ -46,23 +46,22 @@ class NetWorkManager<I:ItemProtocol,C:CategoryProtocol>: NetWorkManagerProtocol 
                         if  r.statusCode == 200{
                             if let data = data {
                                 do {
-                                    print(String(data: data, encoding: .utf8) ?? "")
                                     let decoder = JSONDecoder()
                                     decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
                                     let model = try decoder.decode(type, from: data)
                                     callback?(Result.success(model))
                                 } catch {
                                     print(error)
-                                    callback?(Result.failure(NetworkError.serialization(error: error)))
+                                    callback?(Result.failure(NetworkError.serialization))
                                 }
                             } else {
-                                callback?(Result.failure(NetworkError.noData(url: route)))
+                                callback?(Result.failure(NetworkError.noData))
                             }
                         }else {
-                            callback?(Result.failure(NetworkError.invalidStatusCode(status: r.statusCode)))
+                            callback?(Result.failure(NetworkError.invalidStatusCode))
                         }
                     }else {
-                        callback?(Result.failure(NetworkError.invalidResponse(url: route)))
+                        callback?(Result.failure(NetworkError.invalidResponse))
                     }
                 }
             })
@@ -70,7 +69,7 @@ class NetWorkManager<I:ItemProtocol,C:CategoryProtocol>: NetWorkManagerProtocol 
             _currentTask?.resume()
 
         }else {
-            callback?(Result.failure(NetworkError.badUrl(url: route)))
+            callback?(Result.failure(NetworkError.badUrl))
         }
     }
 
