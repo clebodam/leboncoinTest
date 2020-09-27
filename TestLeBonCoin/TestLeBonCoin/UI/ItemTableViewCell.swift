@@ -103,6 +103,7 @@ class ItemTableViewCell : UITableViewCell {
         addSubview(itemPriceLabel)
         addSubview(itemDescriptionLabel)
         addSubview(categoryLabel)
+    
 
         itemImage.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop:paddingSize, paddingLeft: paddingSize, paddingBottom: 0, paddingRight: 0, width: imageSize, height: imageSize, enableInsets: true)
         urgentImage.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft:0, paddingBottom: 0, paddingRight: 0, width: smallImageSize, height: smallImageSize, enableInsets: true)

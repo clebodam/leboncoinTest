@@ -9,6 +9,7 @@ import XCTest
 
 class TestLeBonCoinUITests: XCTestCase {
 
+
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
@@ -22,14 +23,31 @@ class TestLeBonCoinUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+
+    func testTableCellSelectionANdBack() {
         let app = XCUIApplication()
         app.launch()
-
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let articleTableView = app.tables["tableView"].firstMatch
+        XCTAssertNotNil(articleTableView)
+        XCTAssert( articleTableView.cells.firstMatch.exists)
+        articleTableView.cells.firstMatch.tap()
+        app.navigationBars.buttons.firstMatch.tap()
     }
+
+    func testTableFilter() {
+        let app = XCUIApplication()
+        app.launch()
+        XCTAssert( app.navigationBars.firstMatch.buttons["filter"].exists)
+        app.navigationBars.firstMatch.buttons["filter"].tap()
+    }
+
+    func testTableReload() {
+        let app = XCUIApplication()
+        app.launch()
+        XCTAssert( app.navigationBars.firstMatch.buttons["reload"].exists)
+        app.navigationBars.firstMatch.buttons["reload"].tap()
+    }
+
 
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {

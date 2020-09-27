@@ -17,18 +17,22 @@ class ListTableViewController: UITableViewController {
 
         super.viewDidLoad()
         self.view.backgroundColor = .white
-
+        // set accessibilityIdentifier for testUI
+        tableView.accessibilityIdentifier = "tableView"
         // register Synchronization to ViewModel
         viewModel.register(synchroManager: SynchroManager<Item,Category>(), dao: Dao<Item,Category>(),networkManager: NetWorkManager<Item,Category>())
         // bar items setup
         let button = UIButton()
         button.addTarget(self, action: #selector(filterAction(sender:)), for: .touchUpInside)
+
         button.setImage(UIImage(named: "filter"), for: UIControl.State())
         self.filterButton = UIBarButtonItem(customView: button)
+        self.filterButton?.accessibilityIdentifier = "filter"
         let button1 = UIButton()
         button1.addTarget(self, action: #selector(reloadAction), for: .touchUpInside)
         button1.setImage(UIImage(named: "refresh"), for: UIControl.State())
         self.reloadButton = UIBarButtonItem(customView: button1)
+        self.reloadButton?.accessibilityIdentifier = "reload"
         self.navigationItem.leftBarButtonItem = self.reloadButton
         self.navigationItem.rightBarButtonItem = self.filterButton
         // table View setup
@@ -83,6 +87,7 @@ class ListTableViewController: UITableViewController {
                 itemCell.viewModel = itemViewModel
             }
         }
+
         return cell
     }
 
@@ -96,6 +101,7 @@ class ListTableViewController: UITableViewController {
         let animation = AnimationFactory.slideIn(duration: 0.2, delayFactor: 0)
         let animator = Animator(animation: animation)
         animator.animate(cell: cell, at: indexPath, in: tableView)
+        cell.accessibilityIdentifier = "\(indexPath.row)"
     }
 
     // MARK: - Actions
@@ -142,7 +148,11 @@ class ListTableViewController: UITableViewController {
         if let presenter = alert.popoverPresentationController {
             presenter.barButtonItem =  UIBarButtonItem(customView: sender)
         }
-        self.present(alert, animated: true, completion: {  })
+        // here we have an issue Will attempt to recover by breaking constraint
+        //<NSLayoutConstraint:0x600001823390 UIView:0x7fb277d68230.width == - 16   (active)>
+        // this a known bug  https://stackoverflow.com/questions/55372093/uialertcontrollers-actionsheet-gives-constraint-error-on-ios-12-2-12-3
+
+        self.parent?.present(alert, animated: true)
     }
 }
 
