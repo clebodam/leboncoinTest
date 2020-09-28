@@ -133,7 +133,7 @@ class CoreDataManager<I: ItemProtocol,C: CategoryProtocol> {
                                                    in: bgContext)!
                     itemCoreData = NSManagedObject(entity: entity,
                                                    insertInto: bgContext)
-                    print("create entity \(StorageConstants.ItemCoreDataEntityName)")
+                    print("create entity \(StorageConstants.ItemCoreDataEntityName) \(item.getId())")
                 }
                 itemCoreData?.setValue(item.getId(), forKeyPath: StorageConstants.id)
                 itemCoreData?.setValue(item.getTitle(), forKeyPath: StorageConstants.title)

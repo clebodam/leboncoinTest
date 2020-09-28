@@ -62,13 +62,13 @@ class Item: ItemProtocol {
         self.title = try container.decodeIfPresent(String.self, forKey: .title)
         self.description = try container.decodeIfPresent(String.self, forKey: .description)
         self.price = try container.decodeIfPresent(Float.self, forKey: .price)
-        self.images_url = try container.decode([String: String].self, forKey: .images_url)
+        self.images_url = try container.decodeIfPresent([String: String].self, forKey: .images_url)
         if let urls = self.images_url {
             self.largeImage = urls["thumb"]
             self.smallImage = urls["small"]
         }
-        self.creation_date = try container.decode(Date.self, forKey: .creation_date)
-        self.is_urgent = try container.decode(Bool.self, forKey: .is_urgent)
+        self.creation_date = try container.decodeIfPresent(Date.self, forKey: .creation_date)
+        self.is_urgent = try container.decodeIfPresent(Bool.self, forKey: .is_urgent)
     }
 
     required init(id: Int,
@@ -113,15 +113,15 @@ class Item: ItemProtocol {
     }
 
     public func getLargeImageUrl() -> String? {
-        return largeImage
+        return largeImage ?? ""
     }
 
     public func getSmallImageUrl() -> String? {
-        return smallImage
+        return smallImage ?? ""
     }
 
     public func getCreationDate() -> Date? {
-        return creation_date
+        return creation_date ?? Date()
     }
 
     public func isUrgent() -> Bool {

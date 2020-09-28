@@ -56,12 +56,13 @@ class SynchroManager<I:ItemProtocol,C:CategoryProtocol>: SynchroProtocol {
         if Reachability.isConnectedToNetwork() && shouldDoSynchro()  {
             // get new data, write it and use it
             netWorkManager?.getData { [weak self]  items , categories in
-                // we do a reset to remove all entities
+                // we can  do a reset to remove all entities
                 // this is the easier synchronisation strategy
-                self?.dao?.reset()
+               // self?.dao?.reset()
+                
                 self?.dao?.saveItemsData(items: items)
                 self?.dao?.saveCategoriesData(items: categories)
-                print("SynchroManager - data from network")
+                print("SynchroManager - data from network \(items.count) items")
                 completion(items, categories)
                 self?.saveLastSynchroDate()
             }
@@ -70,7 +71,7 @@ class SynchroManager<I:ItemProtocol,C:CategoryProtocol>: SynchroProtocol {
             if  let items = self.dao?.getItemsData(),
                 let categories = self.dao?.getCategoriesData() {
                 completion(items, categories)
-                print("SynchroManager - data from storage")
+                print("SynchroManager - data from storage \(items.count) items")
             }
         }
     }
