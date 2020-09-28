@@ -20,5 +20,6 @@ class StorageConstants {
     static let small_image_url = "small_image_url"
     static let creation_date = "creation_date"
     static let name = "name"
-
+    static let dataModelName = "testLeBonCoin"
+    static let dataBaseName = "database"
 }

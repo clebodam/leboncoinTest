@@ -32,8 +32,8 @@
 		6D856FDE25220DBE00225DC6 /* testLeBonCoin.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 6D856FDD25220DBE00225DC6 /* testLeBonCoin.xcdatamodel */; };
 		6D856FDF25220DBE00225DC6 /* testLeBonCoin.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 6D856FDD25220DBE00225DC6 /* testLeBonCoin.xcdatamodel */; };
 		6D856FE025220DBE00225DC6 /* testLeBonCoin.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 6D856FDD25220DBE00225DC6 /* testLeBonCoin.xcdatamodel */; };
-		6D85701A2522253300225DC6 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8570192522253300225DC6 /* DataManager.swift */; };
-		6D85701B2522253300225DC6 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8570192522253300225DC6 /* DataManager.swift */; };
+		6D85701A2522253300225DC6 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8570192522253300225DC6 /* CoreDataManager.swift */; };
+		6D85701B2522253300225DC6 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8570192522253300225DC6 /* CoreDataManager.swift */; };
 		6D857027252273E500225DC6 /* StorageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D857026252273E500225DC6 /* StorageConstants.swift */; };
 		6D857028252273E500225DC6 /* StorageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D857026252273E500225DC6 /* StorageConstants.swift */; };
 		6D857029252273E500225DC6 /* StorageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D857026252273E500225DC6 /* StorageConstants.swift */; };
@@ -114,7 +114,7 @@
 		6D796AFB251C986400CCF94F /* UIView+anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+anchor.swift"; sourceTree = "<group>"; };
 		6D796B01251C992C00CCF94F /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		6D856FDD25220DBE00225DC6 /* testLeBonCoin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = testLeBonCoin.xcdatamodel; path = TestLeBonCoin.xcdatamodeld/testLeBonCoin.xcdatamodel; sourceTree = "<group>"; };
-		6D8570192522253300225DC6 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		6D8570192522253300225DC6 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		6D857026252273E500225DC6 /* StorageConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageConstants.swift; sourceTree = "<group>"; };
 		6DCF08B2251CB97000928A7F /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		6DCF08B8251CBEE900928A7F /* UIColor+random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+random.swift"; sourceTree = "<group>"; };
@@ -265,7 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				6D796AD2251B418F00CCF94F /* Dao.swift */,
-				6D8570192522253300225DC6 /* DataManager.swift */,
+				6D8570192522253300225DC6 /* CoreDataManager.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -512,7 +512,7 @@
 				6D796A31251A3DED00CCF94F /* SceneDelegate.swift in Sources */,
 				6D796A9B251A99D700CCF94F /* ItemViewModel.swift in Sources */,
 				6D796AF0251C074700CCF94F /* UIImageView+network.swift in Sources */,
-				6D85701A2522253300225DC6 /* DataManager.swift in Sources */,
+				6D85701A2522253300225DC6 /* CoreDataManager.swift in Sources */,
 				6D856FDE25220DBE00225DC6 /* testLeBonCoin.xcdatamodel in Sources */,
 				6D796A7A251A7AEC00CCF94F /* ListTableViewController.swift in Sources */,
 				6D796AC6251B3C6900CCF94F /* Item.swift in Sources */,
@@ -556,7 +556,7 @@
 				6DE327CE2520A480007FFAB5 /* Aliases.swift in Sources */,
 				6DE328AC2521F68A007FFAB5 /* ItemViewModel.swift in Sources */,
 				6D856FDF25220DBE00225DC6 /* testLeBonCoin.xcdatamodel in Sources */,
-				6D85701B2522253300225DC6 /* DataManager.swift in Sources */,
+				6D85701B2522253300225DC6 /* CoreDataManager.swift in Sources */,
 				6DE3277F251E1259007FFAB5 /* NetworkTests.swift in Sources */,
 				6DE32771251E09F8007FFAB5 /* DateFormatter+extension.swift in Sources */,
 				6DE327AA251E1971007FFAB5 /* TestDao.swift in Sources */,

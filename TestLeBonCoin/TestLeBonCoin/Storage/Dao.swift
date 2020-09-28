@@ -22,9 +22,9 @@ class Dao<I: ItemProtocol,C: CategoryProtocol> :DaoProtocol {
     fileprivate let daoItems = UnitDao<I>()
     fileprivate let daoCategories = UnitDao<C>()
     private var useCoreData: Bool = true
-    private let dataManager = DataManager<I,C>()
+    private let dataManager = CoreDataManager<I,C>()
     init() {
-        dataManager.initalizeStack()
+        dataManager.setupPersistentStore()
     }
     
     func saveItemsData(items: [ItemProtocol]) {

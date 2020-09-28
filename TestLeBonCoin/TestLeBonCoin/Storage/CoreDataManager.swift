@@ -1,5 +1,5 @@
 //
-//  DataManager.swift
+//  CoreDataManager.swift
 //  TestLeBonCoin
 //
 //  Created by Damien on 28/09/2020.
@@ -8,10 +8,10 @@
 import Foundation
 import CoreData
 
-class DataManager<I: ItemProtocol,C: CategoryProtocol> {
+class CoreDataManager<I: ItemProtocol,C: CategoryProtocol> {
 
     lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "testLeBonCoin")
+        let container = NSPersistentContainer(name: StorageConstants.dataModelName)
         container.loadPersistentStores(completionHandler: { (_, error) in
             guard let error = error as NSError? else { return }
             fatalError("Unresolved error: \(error), \(error.userInfo)")
@@ -23,13 +23,13 @@ class DataManager<I: ItemProtocol,C: CategoryProtocol> {
         return container
     }()
 
-    func initalizeStack() {
+    func setupPersistentStore() {
         let description = NSPersistentStoreDescription()
         description.type = NSSQLiteStoreType // set desired type
         if description.type == NSSQLiteStoreType || description.type == NSBinaryStoreType {
             // for persistence on local storage we need to set url
             description.url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-                .first?.appendingPathComponent("database")
+                .first?.appendingPathComponent(StorageConstants.dataBaseName)
         }
         self.persistentContainer.persistentStoreDescriptions = [description]
         self.persistentContainer.loadPersistentStores { description, error in
@@ -58,7 +58,7 @@ class DataManager<I: ItemProtocol,C: CategoryProtocol> {
                 var  categoryCoreData :NSManagedObject?
                 let fetchRequest =
                     NSFetchRequest<NSManagedObject>(entityName: StorageConstants.CategoryCoreDataEntityName)
-                fetchRequest.predicate = NSPredicate(format: "id == \(item.getId())")
+                fetchRequest.predicate = NSPredicate(format: "\(StorageConstants.id) == \(item.getId())")
                 categoryCoreData = try? bgContext.fetch(fetchRequest).first
                 if categoryCoreData == nil {
                     let entity =
@@ -120,7 +120,7 @@ class DataManager<I: ItemProtocol,C: CategoryProtocol> {
                 var  itemCoreData :NSManagedObject?
                 let fetchRequest =
                     NSFetchRequest<NSManagedObject>(entityName: StorageConstants.ItemCoreDataEntityName)
-                fetchRequest.predicate = NSPredicate(format: "id == \(item.getId())")
+                fetchRequest.predicate = NSPredicate(format: "\(StorageConstants.id) == \(item.getId())")
                 itemCoreData = try? bgContext.fetch(fetchRequest).first
                 if itemCoreData == nil {
                     let entity =
