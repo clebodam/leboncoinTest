@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import CoreData
 class StorageConstants {
     static let ItemCoreDataEntityName = "ItemCoreData"
     static let CategoryCoreDataEntityName = "CategoryCoreData"
@@ -22,4 +22,5 @@ class StorageConstants {
     static let name = "name"
     static let dataModelName = "testLeBonCoin"
     static let dataBaseName = "database"
+
 }

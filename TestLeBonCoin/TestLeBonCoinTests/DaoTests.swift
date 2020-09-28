@@ -6,12 +6,11 @@
 //
 
 import XCTest
-
 class DaoTests: XCTestCase {
-    var  dao = Dao<TestItem,TestCategory> ()
+    var  dao: Dao<TestItem,TestCategory>?
     override func setUpWithError() throws {
-        dao.setUseCoredata(false)
-        dao.reset()
+        dao = Dao<TestItem,TestCategory>(persist: false, useCoreData: false)
+        dao?.reset()
         // Can't test CoreData storage I can't read  the datamodel from the unit test target
         // Don't have time to investigate why
 
@@ -26,10 +25,10 @@ class DaoTests: XCTestCase {
         let itemsCount = 1000
         let items:[TestItem] = (0..<itemsCount).indices.map { _ in TestItem()}
         let categories:[TestCategory] = (0..<categoriesCount).indices.map { _ in TestCategory()}
-        dao.saveItemsData(items: items)
-        dao.saveCategoriesData(items: categories)
-        XCTAssertTrue(dao.getItemsData().count == itemsCount)
-        XCTAssertTrue(dao.getCategoriesData().count == categoriesCount)
+        dao?.saveItemsData(items: items)
+        dao?.saveCategoriesData(items: categories)
+        XCTAssertTrue(dao?.getItemsData().count == itemsCount)
+        XCTAssertTrue(dao?.getCategoriesData().count == categoriesCount)
     }
 
     func testReset() throws {
@@ -37,11 +36,11 @@ class DaoTests: XCTestCase {
         let itemsCount = 1000
         let items:[TestItem] = (0..<itemsCount).indices.map { _ in TestItem()}
         let categories:[TestCategory] = (0..<categoriesCount).indices.map { _ in TestCategory()}
-        dao.saveItemsData(items: items)
-        dao.saveCategoriesData(items: categories)
-        dao.reset()
-        XCTAssertTrue(dao.getItemsData().count == 0)
-        XCTAssertTrue(dao.getCategoriesData().count == 0)
+        dao?.saveItemsData(items: items)
+        dao?.saveCategoriesData(items: categories)
+        dao?.reset()
+        XCTAssertTrue(dao?.getItemsData().count == 0)
+        XCTAssertTrue(dao?.getCategoriesData().count == 0)
 
     }
 

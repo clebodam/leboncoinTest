@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+import CoreData
 
 protocol DaoProtocol {
 
@@ -22,11 +22,12 @@ class Dao<I: ItemProtocol,C: CategoryProtocol> :DaoProtocol {
     fileprivate let daoItems = UnitDao<I>()
     fileprivate let daoCategories = UnitDao<C>()
     private var useCoreData: Bool = true
-    private let dataManager = CoreDataManager<I,C>()
-    init() {
-        dataManager.setupPersistentStore()
+    private let dataManager : CoreDataManager<I,C>
+
+    init(persist:Bool  = false , useCoreData: Bool = true) {
+        dataManager = CoreDataManager<I,C>(persist:persist)
+        self.useCoreData = useCoreData
     }
-    
     func saveItemsData(items: [ItemProtocol]) {
         
         if let items = items as? [I] {
@@ -37,11 +38,6 @@ class Dao<I: ItemProtocol,C: CategoryProtocol> :DaoProtocol {
             }
         }
     }
-
-    func setUseCoredata(_ value: Bool) {
-        useCoreData = value
-    }
-
     
     func reset() {
         if useCoreData {

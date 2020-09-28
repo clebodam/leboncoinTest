@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 class CoreDataManager<I: ItemProtocol,C: CategoryProtocol> {
-
+    private var persist: Bool
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: StorageConstants.dataModelName)
         container.loadPersistentStores(completionHandler: { (_, error) in
@@ -23,9 +23,12 @@ class CoreDataManager<I: ItemProtocol,C: CategoryProtocol> {
         return container
     }()
 
+    init(persist: Bool = true) {
+        self.persist = persist
+    }
     func setupPersistentStore() {
         let description = NSPersistentStoreDescription()
-        description.type = NSSQLiteStoreType // set desired type
+        description.type = persist ?  NSSQLiteStoreType : NSInMemoryStoreType// set desired type
         if description.type == NSSQLiteStoreType || description.type == NSBinaryStoreType {
             // for persistence on local storage we need to set url
             description.url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)

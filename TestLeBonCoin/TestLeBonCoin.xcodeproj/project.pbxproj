@@ -29,14 +29,14 @@
 		6D796AF6251C712400CCF94F /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796AF5251C712400CCF94F /* DetailsViewController.swift */; };
 		6D796AFC251C986400CCF94F /* UIView+anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796AFB251C986400CCF94F /* UIView+anchor.swift */; };
 		6D796B02251C992C00CCF94F /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796B01251C992C00CCF94F /* ItemTableViewCell.swift */; };
-		6D856FDE25220DBE00225DC6 /* testLeBonCoin.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 6D856FDD25220DBE00225DC6 /* testLeBonCoin.xcdatamodel */; };
-		6D856FDF25220DBE00225DC6 /* testLeBonCoin.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 6D856FDD25220DBE00225DC6 /* testLeBonCoin.xcdatamodel */; };
-		6D856FE025220DBE00225DC6 /* testLeBonCoin.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 6D856FDD25220DBE00225DC6 /* testLeBonCoin.xcdatamodel */; };
 		6D85701A2522253300225DC6 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8570192522253300225DC6 /* CoreDataManager.swift */; };
 		6D85701B2522253300225DC6 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8570192522253300225DC6 /* CoreDataManager.swift */; };
 		6D857027252273E500225DC6 /* StorageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D857026252273E500225DC6 /* StorageConstants.swift */; };
 		6D857028252273E500225DC6 /* StorageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D857026252273E500225DC6 /* StorageConstants.swift */; };
 		6D857029252273E500225DC6 /* StorageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D857026252273E500225DC6 /* StorageConstants.swift */; };
+		6D8570432522862A00225DC6 /* TestLeBonCoin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D8570412522862A00225DC6 /* TestLeBonCoin.xcdatamodeld */; };
+		6D8570442522862A00225DC6 /* TestLeBonCoin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D8570412522862A00225DC6 /* TestLeBonCoin.xcdatamodeld */; };
+		6D8570452522862A00225DC6 /* TestLeBonCoin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D8570412522862A00225DC6 /* TestLeBonCoin.xcdatamodeld */; };
 		6DCF08B3251CB97000928A7F /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF08B2251CB97000928A7F /* Animator.swift */; };
 		6DCF08B9251CBEE900928A7F /* UIColor+random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF08B8251CBEE900928A7F /* UIColor+random.swift */; };
 		6DCF08C0251D393300928A7F /* Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF08BF251D393200928A7F /* Aliases.swift */; };
@@ -113,9 +113,9 @@
 		6D796AF5251C712400CCF94F /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		6D796AFB251C986400CCF94F /* UIView+anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+anchor.swift"; sourceTree = "<group>"; };
 		6D796B01251C992C00CCF94F /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
-		6D856FDD25220DBE00225DC6 /* testLeBonCoin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = testLeBonCoin.xcdatamodel; path = TestLeBonCoin.xcdatamodeld/testLeBonCoin.xcdatamodel; sourceTree = "<group>"; };
 		6D8570192522253300225DC6 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		6D857026252273E500225DC6 /* StorageConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageConstants.swift; sourceTree = "<group>"; };
+		6D8570422522862A00225DC6 /* testLeBonCoin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = testLeBonCoin.xcdatamodel; sourceTree = "<group>"; };
 		6DCF08B2251CB97000928A7F /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		6DCF08B8251CBEE900928A7F /* UIColor+random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+random.swift"; sourceTree = "<group>"; };
 		6DCF08BF251D393200928A7F /* Aliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aliases.swift; sourceTree = "<group>"; };
@@ -182,8 +182,8 @@
 		6D796A2D251A3DED00CCF94F /* TestLeBonCoin */ = {
 			isa = PBXGroup;
 			children = (
-				6D856FDD25220DBE00225DC6 /* testLeBonCoin.xcdatamodel */,
 				6D796A30251A3DED00CCF94F /* SceneDelegate.swift */,
+				6D8570412522862A00225DC6 /* TestLeBonCoin.xcdatamodeld */,
 				6D796A2E251A3DED00CCF94F /* AppDelegate.swift */,
 				6DE3280F2521D2CA007FFAB5 /* Screens */,
 				6D796ADE251B6CFF00CCF94F /* Synchro */,
@@ -513,7 +513,6 @@
 				6D796A9B251A99D700CCF94F /* ItemViewModel.swift in Sources */,
 				6D796AF0251C074700CCF94F /* UIImageView+network.swift in Sources */,
 				6D85701A2522253300225DC6 /* CoreDataManager.swift in Sources */,
-				6D856FDE25220DBE00225DC6 /* testLeBonCoin.xcdatamodel in Sources */,
 				6D796A7A251A7AEC00CCF94F /* ListTableViewController.swift in Sources */,
 				6D796AC6251B3C6900CCF94F /* Item.swift in Sources */,
 				6D796AE0251B6D3900CCF94F /* SynchroManager.swift in Sources */,
@@ -527,6 +526,7 @@
 				6D796AA1251A9A5000CCF94F /* CategoryViewModel.swift in Sources */,
 				6D796AD9251B68E700CCF94F /* Category.swift in Sources */,
 				6DE3282C2521D7DD007FFAB5 /* UIConstants.swift in Sources */,
+				6D8570432522862A00225DC6 /* TestLeBonCoin.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,9 +553,9 @@
 				6DE328B72521F6B3007FFAB5 /* Reachability.swift in Sources */,
 				6DE328012520E6B1007FFAB5 /* ItemViewModelTests.swift in Sources */,
 				6DE3283C2521D8AF007FFAB5 /* ListTableViewViewModel.swift in Sources */,
+				6D8570442522862A00225DC6 /* TestLeBonCoin.xcdatamodeld in Sources */,
 				6DE327CE2520A480007FFAB5 /* Aliases.swift in Sources */,
 				6DE328AC2521F68A007FFAB5 /* ItemViewModel.swift in Sources */,
-				6D856FDF25220DBE00225DC6 /* testLeBonCoin.xcdatamodel in Sources */,
 				6D85701B2522253300225DC6 /* CoreDataManager.swift in Sources */,
 				6DE3277F251E1259007FFAB5 /* NetworkTests.swift in Sources */,
 				6DE32771251E09F8007FFAB5 /* DateFormatter+extension.swift in Sources */,
@@ -567,9 +567,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D856FE025220DBE00225DC6 /* testLeBonCoin.xcdatamodel in Sources */,
 				6D857029252273E500225DC6 /* StorageConstants.swift in Sources */,
 				6D796A4E251A3DF000CCF94F /* TestLeBonCoinUITests.swift in Sources */,
+				6D8570452522862A00225DC6 /* TestLeBonCoin.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -876,6 +876,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6D8570412522862A00225DC6 /* TestLeBonCoin.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6D8570422522862A00225DC6 /* testLeBonCoin.xcdatamodel */,
+			);
+			currentVersion = 6D8570422522862A00225DC6 /* testLeBonCoin.xcdatamodel */;
+			path = TestLeBonCoin.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6D796A23251A3DED00CCF94F /* Project object */;
 }
