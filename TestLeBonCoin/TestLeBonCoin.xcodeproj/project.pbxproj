@@ -37,6 +37,9 @@
 		6D8570432522862A00225DC6 /* TestLeBonCoin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D8570412522862A00225DC6 /* TestLeBonCoin.xcdatamodeld */; };
 		6D8570442522862A00225DC6 /* TestLeBonCoin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D8570412522862A00225DC6 /* TestLeBonCoin.xcdatamodeld */; };
 		6D8570452522862A00225DC6 /* TestLeBonCoin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D8570412522862A00225DC6 /* TestLeBonCoin.xcdatamodeld */; };
+		6D85704D25229BD100225DC6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D85704C25229BD100225DC6 /* Localizable.strings */; };
+		6D85704E25229BD100225DC6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D85704C25229BD100225DC6 /* Localizable.strings */; };
+		6D85704F25229BD100225DC6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D85704C25229BD100225DC6 /* Localizable.strings */; };
 		6DCF08B3251CB97000928A7F /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF08B2251CB97000928A7F /* Animator.swift */; };
 		6DCF08B9251CBEE900928A7F /* UIColor+random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF08B8251CBEE900928A7F /* UIColor+random.swift */; };
 		6DCF08C0251D393300928A7F /* Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF08BF251D393200928A7F /* Aliases.swift */; };
@@ -116,6 +119,7 @@
 		6D8570192522253300225DC6 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		6D857026252273E500225DC6 /* StorageConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageConstants.swift; sourceTree = "<group>"; };
 		6D8570422522862A00225DC6 /* testLeBonCoin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = testLeBonCoin.xcdatamodel; sourceTree = "<group>"; };
+		6D85704C25229BD100225DC6 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		6DCF08B2251CB97000928A7F /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		6DCF08B8251CBEE900928A7F /* UIColor+random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+random.swift"; sourceTree = "<group>"; };
 		6DCF08BF251D393200928A7F /* Aliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aliases.swift; sourceTree = "<group>"; };
@@ -183,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				6D796A30251A3DED00CCF94F /* SceneDelegate.swift */,
+				6D85704C25229BD100225DC6 /* Localizable.strings */,
 				6D8570412522862A00225DC6 /* TestLeBonCoin.xcdatamodeld */,
 				6D796A2E251A3DED00CCF94F /* AppDelegate.swift */,
 				6DE3280F2521D2CA007FFAB5 /* Screens */,
@@ -474,6 +479,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D85704D25229BD100225DC6 /* Localizable.strings in Resources */,
 				6D796A35251A3DF000CCF94F /* Assets.xcassets in Resources */,
 				6D796A38251A3DF000CCF94F /* LaunchScreen.storyboard in Resources */,
 			);
@@ -483,6 +489,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D85704E25229BD100225DC6 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +497,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D85704F25229BD100225DC6 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

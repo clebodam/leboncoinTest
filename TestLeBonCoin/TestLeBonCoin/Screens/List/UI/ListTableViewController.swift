@@ -122,7 +122,7 @@ class ListTableViewController: UITableViewController {
     }
     
     @objc func filterAction(sender: UIButton) {
-        let alert = UIAlertController(title: "Please choose your categoy to filter",
+        let alert = UIAlertController(title: NSLocalizedString("filter_title", comment: ""),
                                       message: nil,
                                       preferredStyle: UIAlertController.Style.actionSheet)
         alert.isModalInPopover = true
@@ -142,7 +142,7 @@ class ListTableViewController: UITableViewController {
             self.viewModel.filterCategory = categories?[index.row]
         }
 
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: {
+        let okAction = UIAlertAction(title: NSLocalizedString("ok_button", comment: ""), style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
             if  self.viewModel.filterCategory == nil {
                 let categories =  self.viewModel.getCategories()
@@ -154,7 +154,7 @@ class ListTableViewController: UITableViewController {
         })
 
         alert.addAction(okAction)
-        let cancelAction = UIAlertAction(title: "No Filter", style: .destructive, handler: { _ in
+        let cancelAction = UIAlertAction(title: NSLocalizedString("cancel_button", comment: ""), style: .destructive, handler: { _ in
             self.viewModel.filterCategory = nil
             self.viewModel.filter()
         })

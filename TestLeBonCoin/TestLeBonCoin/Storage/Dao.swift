@@ -24,7 +24,7 @@ class Dao<I: ItemProtocol,C: CategoryProtocol> :DaoProtocol {
     private var useCoreData: Bool = true
     private let dataManager : CoreDataManager<I,C>
 
-    init(persist:Bool  = false , useCoreData: Bool = true) {
+    init(persist:Bool  = true , useCoreData: Bool = true) {
         dataManager = CoreDataManager<I,C>(persist:persist)
         self.useCoreData = useCoreData
     }

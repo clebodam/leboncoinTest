@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  TestLeBonCoin
+
+  Created by Damien on 29/09/2020.
+  
+*/
+
+"filter_title" = "Please choose your category to filter";
+"ok_button" = "OK";
+"cancel_button" = "No Filter";

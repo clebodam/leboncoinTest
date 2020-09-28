@@ -25,10 +25,12 @@ class CoreDataManager<I: ItemProtocol,C: CategoryProtocol> {
 
     init(persist: Bool = true) {
         self.persist = persist
+        setupPersistentStore()
     }
     func setupPersistentStore() {
         let description = NSPersistentStoreDescription()
-        description.type = persist ?  NSSQLiteStoreType : NSInMemoryStoreType// set desired type
+        description.type = persist ?  NSSQLiteStoreType : NSInMemoryStoreType
+        // set desired type
         if description.type == NSSQLiteStoreType || description.type == NSBinaryStoreType {
             // for persistence on local storage we need to set url
             description.url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
