@@ -28,7 +28,9 @@ class ListTableViewController: UITableViewController {
         // set accessibilityIdentifier for testUI
         tableView.accessibilityIdentifier = "tableView"
         // register Synchronization to ViewModel
-        viewModel.register(synchroManager: SynchroManager<Item,Category>(), dao: Dao<Item,Category>(),networkManager: NetWorkManager<Item,Category>())
+        viewModel.register(synchroManager: SynchroManager<Item,Category>(),
+                           dao: Dao<Item,Category>(),
+                           networkManager: NetWorkManager<Item,Category>())
         // bar items setup
         let button = UIButton()
         button.addTarget(self, action: #selector(filterAction(sender:)), for: .touchUpInside)
@@ -120,7 +122,9 @@ class ListTableViewController: UITableViewController {
     }
     
     @objc func filterAction(sender: UIButton) {
-        let alert = UIAlertController(title: "Please choose your categoy to filter", message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+        let alert = UIAlertController(title: "Please choose your categoy to filter",
+                                      message: nil,
+                                      preferredStyle: UIAlertController.Style.actionSheet)
         alert.isModalInPopover = true
         var pickerViewValues: [[String]] = [[String]]()
         if let values = viewModel.getCategories()?.map({$0.name }) {

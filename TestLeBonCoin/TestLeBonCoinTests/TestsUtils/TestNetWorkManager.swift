@@ -8,11 +8,9 @@
 import Foundation
 
 class TestNetWorkManager:NetWorkManagerProtocol {
-    // GROSSE ANARQUE ! 
+    //Mock netWorkManager with a Dao
     func getData(completion: @escaping ([ItemProtocol], [CategoryProtocol]) -> ()) {
         let dao = TestDao()
         completion(dao.getItemsData(),dao.getCategoriesData())
     }
-
-
 }
