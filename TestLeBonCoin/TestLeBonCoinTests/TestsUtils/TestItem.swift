@@ -29,6 +29,8 @@ class TestItem: ItemProtocol {
     private var description: String?
     private var price: Float?
     private var images_url :[String:String]?
+    private var largeImage : String?
+    private var smallImage: String?
     private var creation_date: Date?
     private var is_urgent: Bool?
 
@@ -41,6 +43,27 @@ class TestItem: ItemProtocol {
         creation_date = generateRandomDate(daysBack: 10)
         is_urgent = Bool.random()
         images_url = [String:String]()
+    }
+
+    required init(id: Int,
+         title: String,
+         description: String,
+         catId: Int,
+         price: Float,
+         largeImage: String,
+         smallImage: String,
+         creationDate: Date,
+         isUrgent: Bool ) {
+
+        self.id = id
+        self.category_id = catId
+        self.description = description
+        self.title = title
+        self.price = price
+        self.smallImage = smallImage
+        self.largeImage = largeImage
+        self.creation_date = creationDate
+        self.is_urgent = isUrgent
     }
     
     func getId() -> Int {

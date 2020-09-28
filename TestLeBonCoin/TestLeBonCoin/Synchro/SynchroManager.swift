@@ -46,7 +46,6 @@ class SynchroManager<I:ItemProtocol,C:CategoryProtocol>: SynchroProtocol {
     private func saveLastSynchroDate() {
         UserDefaults.standard.setValue(getTimeProvider().now(), forKey: LAST_SYNCHRO_KEY)
         UserDefaults.standard.synchronize()
-
     }
 
     func shouldDoSynchro() -> Bool {
@@ -57,6 +56,9 @@ class SynchroManager<I:ItemProtocol,C:CategoryProtocol>: SynchroProtocol {
         if Reachability.isConnectedToNetwork() && shouldDoSynchro()  {
             // get new data, write it and use it
             netWorkManager?.getData { [weak self]  items , categories in
+                // we do a reset to remove all entities
+                // this is the easier synchronisation strategy
+                self?.dao?.reset()
                 self?.dao?.saveItemsData(items: items)
                 self?.dao?.saveCategoriesData(items: categories)
                 print("SynchroManager - data from network")

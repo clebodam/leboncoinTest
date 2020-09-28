@@ -18,24 +18,40 @@ fileprivate enum CodingKeys: String, CodingKey {
     case is_urgent
 }
 public protocol ItemProtocol: Codable {
-     func getId() -> Int
-     func getCategoryId() -> Int
-     func getTitle() -> String
-     func getDescription() -> String
-     func getPrice() -> Float
-     func getLargeImageUrl() -> String?
-     func getSmallImageUrl() -> String?
-     func getCreationDate() -> Date?
-     func isUrgent() -> Bool
+    func getId() -> Int
+    func getCategoryId() -> Int
+    func getTitle() -> String
+    func getDescription() -> String
+    func getPrice() -> Float
+    func getLargeImageUrl() -> String?
+    func getSmallImageUrl() -> String?
+    func getCreationDate() -> Date?
+    func isUrgent() -> Bool
+    init(id: Int,
+         title: String,
+         description: String,
+         catId: Int,
+         price: Float,
+         largeImage: String,
+         smallImage: String,
+         creationDate: Date,
+         isUrgent: Bool )
 }
 
+
 class Item: ItemProtocol {
+    static func type() -> ItemProtocol.Type {
+        return Item.self
+    }
+
     private var id: Int?
     private var category_id: Int?
     private var title: String?
     private var description: String?
     private var price: Float?
     private var images_url :[String:String]?
+    private var largeImage : String?
+    private var smallImage: String?
     private var creation_date: Date?
     private var is_urgent: Bool?
 
@@ -46,9 +62,34 @@ class Item: ItemProtocol {
         self.title = try container.decodeIfPresent(String.self, forKey: .title)
         self.description = try container.decodeIfPresent(String.self, forKey: .description)
         self.price = try container.decodeIfPresent(Float.self, forKey: .price)
-        self.images_url = try container.decodeIfPresent([String: String].self, forKey: .images_url)
-        self.creation_date = try container.decodeIfPresent(Date.self, forKey: .creation_date)
-        self.is_urgent = try container.decodeIfPresent(Bool.self, forKey: .is_urgent)
+        self.images_url = try container.decode([String: String].self, forKey: .images_url)
+        if let urls = self.images_url {
+            self.largeImage = urls["thumb"]
+            self.smallImage = urls["small"]
+        }
+        self.creation_date = try container.decode(Date.self, forKey: .creation_date)
+        self.is_urgent = try container.decode(Bool.self, forKey: .is_urgent)
+    }
+
+    required init(id: Int,
+         title: String,
+         description: String,
+         catId: Int,
+         price: Float,
+         largeImage: String,
+         smallImage: String,
+         creationDate: Date,
+         isUrgent: Bool ) {
+
+        self.id = id
+        self.category_id = catId
+        self.description = description
+        self.title = title
+        self.price = price
+        self.smallImage = smallImage
+        self.largeImage = largeImage
+        self.creation_date = creationDate
+        self.is_urgent = isUrgent
     }
 
     public func getId() -> Int {
@@ -72,17 +113,11 @@ class Item: ItemProtocol {
     }
 
     public func getLargeImageUrl() -> String? {
-        guard let urls = images_url else {
-            return nil
-        }
-        return urls["thumb"]
+        return largeImage
     }
 
     public func getSmallImageUrl() -> String? {
-        guard let urls = images_url else {
-            return nil
-        }
-        return urls["small"]
+        return smallImage
     }
 
     public func getCreationDate() -> Date? {
@@ -92,4 +127,7 @@ class Item: ItemProtocol {
     public func isUrgent() -> Bool {
         return is_urgent ?? false
     }
+
+
+
 }

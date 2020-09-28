@@ -8,10 +8,13 @@
 import XCTest
 
 class DaoTests: XCTestCase {
-    let dao = Dao<TestItem,TestCategory> ()
+    var  dao = Dao<TestItem,TestCategory> ()
     override func setUpWithError() throws {
+        dao.setUseCoredata(false)
         dao.reset()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        // Can't test CoreData storage I can't read  the datamodel from the unit test target
+        // Don't have time to investigate why
+
     }
 
     override func tearDownWithError() throws {
@@ -27,7 +30,6 @@ class DaoTests: XCTestCase {
         dao.saveCategoriesData(items: categories)
         XCTAssertTrue(dao.getItemsData().count == itemsCount)
         XCTAssertTrue(dao.getCategoriesData().count == categoriesCount)
-
     }
 
     func testReset() throws {

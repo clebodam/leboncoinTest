@@ -15,6 +15,7 @@ fileprivate enum CodingKeys: String, CodingKey {
 public protocol CategoryProtocol: Codable {
      func getName() -> String
      func getId() -> Int
+     init(id: Int, name: String)
 }
 
 class Category: CategoryProtocol {
@@ -26,6 +27,11 @@ class Category: CategoryProtocol {
         self.id = try container.decodeIfPresent(Int.self, forKey: .id)
         self.name = try container.decodeIfPresent(String.self, forKey: .name)
 
+    }
+
+    required init(id: Int, name: String) {
+        self.id = id
+        self.name = name
     }
 
     public func getName() -> String {

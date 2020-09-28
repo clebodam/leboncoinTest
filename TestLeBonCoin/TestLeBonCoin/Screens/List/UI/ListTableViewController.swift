@@ -146,7 +146,9 @@ class ListTableViewController: UITableViewController {
             (alert: UIAlertAction!) -> Void in
             if  self.viewModel.filterCategory == nil {
                 let categories =  self.viewModel.getCategories()
-                self.viewModel.filterCategory = categories?[0]
+                if let cat = categories?[0] {
+                    self.viewModel.filterCategory = cat
+                }
             }
             self.viewModel.filter()
         })

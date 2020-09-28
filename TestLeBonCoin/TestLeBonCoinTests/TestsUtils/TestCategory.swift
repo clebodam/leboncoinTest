@@ -26,6 +26,11 @@ class TestCategory: CategoryProtocol {
         self.id = id
         name = "name of \(id)"
     }
+    
+    required init(id: Int, name: String) {
+        self.id = id
+        self.name = name
+    }
 
     static func createUniqCategories(count:Int) -> [TestCategory] {
         var categories = [TestCategory]()
