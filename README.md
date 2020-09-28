@@ -46,7 +46,7 @@ I used an MVVM architecture for my application.
 ![MVVM Architecture](https://upload.wikimedia.org/wikipedia/commons/8/87/MVVMPattern.png "")
 For example, if we check the ListTableViewController implementation, we can see 2 classes :
 
-- ListTableViewController, it is the View himself, which implements HomeContract.View
+- ListTableViewController, it is the View himself, which owns ListTableViewControllerViewModel
 - ListTableViewControllerViewModel, the man-in-the middle classes which make the linking between the View and the Model provided by the Dao
 
 
