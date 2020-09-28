@@ -12,6 +12,14 @@ class ListTableViewController: UITableViewController {
     var filterButton: UIBarButtonItem?
     var reloadButton: UIBarButtonItem?
     var viewModel = ListTableViewViewModel<Item,Category>()
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        if #available(iOS 13, *) {
+            return .darkContent
+        } else {
+            return .default
+        }
+    }
     // MARK: - UI SETUP
     override func viewDidLoad() {
 
@@ -42,6 +50,7 @@ class ListTableViewController: UITableViewController {
         self.tableView.separatorStyle = .none
         bindViewModel()
         reloadAction()
+        setNeedsStatusBarAppearanceUpdate()
     }
 
     override func viewWillAppear(_ animated: Bool) {

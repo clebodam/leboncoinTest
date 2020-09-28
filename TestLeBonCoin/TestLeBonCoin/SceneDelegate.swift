@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let window = UIWindow(windowScene: windowScene)
         self.window = window
-        let viewController = UINavigationController(rootViewController: ListTableViewController())
+        let viewController = MyNavigationController(rootViewController: ListTableViewController())
         window.setup(viewController)
     }
 

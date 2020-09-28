@@ -64,6 +64,7 @@ class DetailsViewController: UIViewController {
         imgView.clipsToBounds = true
         return imgView
     }()
+
     // MARK: - INIT
     init(_ viewModel: ItemViewModel) {
         self.viewModel = viewModel

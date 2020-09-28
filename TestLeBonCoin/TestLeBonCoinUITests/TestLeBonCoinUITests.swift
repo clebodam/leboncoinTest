@@ -24,7 +24,7 @@ class TestLeBonCoinUITests: XCTestCase {
     }
 
 
-    func testTableCellSelectionANdBack() {
+    func testTableCellSelectionAndBack() {
         let app = XCUIApplication()
         app.launch()
         let articleTableView = app.tables["tableView"].firstMatch

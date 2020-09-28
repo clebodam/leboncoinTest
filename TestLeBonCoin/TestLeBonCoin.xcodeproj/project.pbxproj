@@ -179,6 +179,7 @@
 				6D796A34251A3DF000CCF94F /* Assets.xcassets */,
 				6D796A36251A3DF000CCF94F /* LaunchScreen.storyboard */,
 				6D796A39251A3DF000CCF94F /* Info.plist */,
+				6DE3280B2521C03E007FFAB5 /* New Group */,
 			);
 			path = TestLeBonCoin;
 			sourceTree = "<group>";
@@ -301,6 +302,13 @@
 				6DE327B3251E1D2F007FFAB5 /* TestSynchroManager.swift */,
 			);
 			path = TestsUtils;
+			sourceTree = "<group>";
+		};
+		6DE3280B2521C03E007FFAB5 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
