@@ -81,6 +81,16 @@ I had two main problems:
 [Known issue](https://stackoverflow.com/questions/55372093/uialertcontrollers-actionsheet-gives-constraint-error-on-ios-12-2-12-3)
 
 -   I have a problem in the unit tests: it is currently impossible for me to access the CoreData data model in the test target
+-   
+#### dao with userdefault implementation
+
+![dao](https://github.com/clebodam/leboncoinTest/raw/master/img/testOk.png "")
+
+#### dao with coredata implementation
+
+![dao](https://github.com/clebodam/leboncoinTest/raw/master/img/testfail.png "")
+
+2020-09-29 09:26:30.608861+0200 xctest[78466:1957087] [error] error:  Failed to load model named TestLeBonCoin
 
 
 
