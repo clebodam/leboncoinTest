@@ -40,9 +40,6 @@ public protocol ItemProtocol: Codable {
 
 
 class Item: ItemProtocol {
-    static func type() -> ItemProtocol.Type {
-        return Item.self
-    }
 
     private var id: Int?
     private var category_id: Int?

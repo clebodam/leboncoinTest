@@ -10,12 +10,11 @@ import UIKit
 import CoreData
 
 protocol DaoProtocol {
-
     func saveItemsData(items :[ItemProtocol])
     func getItemsData() -> [ItemProtocol]
-    func reset()
     func saveCategoriesData(items :[CategoryProtocol])
     func getCategoriesData() -> [CategoryProtocol]
+    func reset()
 }
 
 class Dao<I: ItemProtocol,C: CategoryProtocol> :DaoProtocol {

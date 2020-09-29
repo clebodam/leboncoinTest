@@ -56,6 +56,7 @@ The whole architecture is designed to make each component as independent as poss
 I use generics and protocols to separate each layer network dao synchro model and ui.
 For testing each component can be tested independently of the others
 
+### Usage of interfaces/protocols
 
 ## What went wrong during the test
 
