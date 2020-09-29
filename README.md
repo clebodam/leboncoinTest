@@ -1,12 +1,22 @@
 <h1 align="center">TestLeBonCoin</h1>
-
 <p align="center">
   <a href="https://www.logolynx.com/images/logolynx/f9/f98c597f4b18590733032cc76fa88ce8.png"><img alt="ios" src="https://www.logolynx.com/images/logolynx/f9/f98c597f4b18590733032cc76fa88ce8.png"/></a>
 </p>
 
 ![ListTableViewController filtered](https://github.com/clebodam/leboncoinTest/raw/master/img/scroll.gif "")
 
+
+
 ## Implementation
+
+### Contraints
+>Création des interfaces avec autolayout directement dans le code (pas de storyboard ni de
+xib, ni de SwiftUI)
+>
+>  Aucune librairie externe n'est autorisée
+> 
+> Le projet doit être compatible pour iOS 11+
+> 
 
 I will split the details about my implementation in 2 parts: 
 - [ListTableViewController](https://github.com/clebodam/leboncoinTest/blob/master/TestLeBonCoin/TestLeBonCoin/Screens/List/UI/ListTableViewController.swift)
@@ -81,7 +91,7 @@ I had two main problems:
 [Known issue](https://stackoverflow.com/questions/55372093/uialertcontrollers-actionsheet-gives-constraint-error-on-ios-12-2-12-3)
 
 -   I have a problem in the unit tests: it is currently impossible for me to access the CoreData data model in the test target
--   
+  
 #### dao with userdefault implementation
 
 ![dao](https://github.com/clebodam/leboncoinTest/raw/master/img/testOk.png "")
