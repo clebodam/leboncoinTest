@@ -57,7 +57,12 @@ I use generics and protocols to separate each layer network dao synchro model an
 For testing each component can be tested independently of the others
 
 ### Usage of interfaces/protocols
+![protocols](https://github.com/clebodam/leboncoinTest/raw/master/img/protocols.png "")
 
+### Data binding
+Use of a generic Dynamic class for the binding of the viewModel and the view
+
+![protocols](https://github.com/clebodam/leboncoinTest/raw/master/img/protocols.png "")
 ## What went wrong during the test
 
 I had two main problems:
