@@ -62,7 +62,15 @@ For testing each component can be tested independently of the others
 ### Data binding
 Use of a generic Dynamic class for the binding of the viewModel and the view
 
-![protocols](https://github.com/clebodam/leboncoinTest/raw/master/img/protocols.png "")
+![protocols](https://github.com/clebodam/leboncoinTest/raw/master/img/binding.png "")
+
+### Dao double implementation 
+I started doing a Dao based on the userdefaults of the system to focus on the UI.
+Everything was perfectly functional but it bothered me anyway. So I chose to implement Coredata in the existing Dao.
+The advantage is that this one is perfectly functional and I only have to specify if I want coredata or not and in the init of the dao and everything remains transparent for the user.
+The proof is that for the unit tests I have a problem with Coredata (I cannot access the data model which causes a failure of the tests) suddenly in the test sets I initialize the dao without coreData and the tests pass
+
+
 ## What went wrong during the test
 
 I had two main problems:
