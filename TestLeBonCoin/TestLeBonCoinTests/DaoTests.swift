@@ -9,7 +9,7 @@ import XCTest
 class DaoTests: XCTestCase {
     var  dao: Dao<TestItem,TestCategory>?
     override func setUpWithError() throws {
-        dao = Dao<TestItem,TestCategory>(persist: true, useCoreData: false)
+        dao = Dao<TestItem,TestCategory>(persist: false, useCoreData: true)
         dao?.reset()
         // Can't test CoreData storage I can't read  the datamodel from the unit test target
         // Don't have time to investigate why
