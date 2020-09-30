@@ -11,8 +11,6 @@ class ListTableViewViewModel<I:ItemProtocol,C:CategoryProtocol> {
     var filterCategory: CategoryViewModel?
     var isSynchronizing = Dynamic(false)
     var filteredItems: Dynamic<[ItemViewModel]> = Dynamic([ItemViewModel]())
-    
-    private var items = [ItemViewModel]()
     private var categories: [CategoryViewModel] =  [CategoryViewModel]()
     private var synchroManager: SynchroProtocol?
 
@@ -45,7 +43,7 @@ class ListTableViewViewModel<I:ItemProtocol,C:CategoryProtocol> {
 
     func populate(_ rawItems: [ItemProtocol], _ rawCategories: [CategoryProtocol]) -> [ItemViewModel] {
         categories.removeAll()
-        items.removeAll()
+        var items = [ItemViewModel]()
         for category in rawCategories {
             let categoryViewModel = CategoryViewModel(category)
             categories.append(categoryViewModel)
