@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ItemTableViewCell : UITableViewCell {
+class ItemTableViewCell : UITableViewCell, ReuseIdentifierProtocol {
     // MARK: - PROPERTIES
     var viewModel : ItemViewModel? {
         didSet {

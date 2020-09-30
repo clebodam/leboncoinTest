@@ -55,7 +55,7 @@ class ListTableViewController: UITableViewController {
         self.navigationItem.leftBarButtonItem = self.reloadButton
         self.navigationItem.rightBarButtonItem = self.filterButton
         // table View setup
-        self.tableView.register(ItemTableViewCell.self,forCellReuseIdentifier: "reuseIdentifier")
+        self.tableView.register(ItemTableViewCell.self,forCellReuseIdentifier: ItemTableViewCell.reuseIdentifier)
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 150
         self.tableView.separatorStyle = .none
@@ -90,7 +90,7 @@ class ListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableViewCell.reuseIdentifier, for: indexPath)
 
         if let itemCell = cell as? ItemTableViewCell {
             if let itemViewModel = viewModel.getItemViewModel(atIndexPath: indexPath) {
