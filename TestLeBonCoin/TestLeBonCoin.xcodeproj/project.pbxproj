@@ -40,6 +40,7 @@
 		6D85704D25229BD100225DC6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D85704C25229BD100225DC6 /* Localizable.strings */; };
 		6D85704E25229BD100225DC6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D85704C25229BD100225DC6 /* Localizable.strings */; };
 		6D85704F25229BD100225DC6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D85704C25229BD100225DC6 /* Localizable.strings */; };
+		6D8ED94D2524AAC500C0EB46 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8ED94C2524AAC500C0EB46 /* Filter.swift */; };
 		6DCF08B3251CB97000928A7F /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF08B2251CB97000928A7F /* Animator.swift */; };
 		6DCF08B9251CBEE900928A7F /* UIColor+random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF08B8251CBEE900928A7F /* UIColor+random.swift */; };
 		6DCF08C0251D393300928A7F /* Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF08BF251D393200928A7F /* Aliases.swift */; };
@@ -120,6 +121,7 @@
 		6D857026252273E500225DC6 /* StorageConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageConstants.swift; sourceTree = "<group>"; };
 		6D8570422522862A00225DC6 /* testLeBonCoin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = testLeBonCoin.xcdatamodel; sourceTree = "<group>"; };
 		6D85704C25229BD100225DC6 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		6D8ED94C2524AAC500C0EB46 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		6DCF08B2251CB97000928A7F /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		6DCF08B8251CBEE900928A7F /* UIColor+random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+random.swift"; sourceTree = "<group>"; };
 		6DCF08BF251D393200928A7F /* Aliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aliases.swift; sourceTree = "<group>"; };
@@ -292,6 +294,14 @@
 			path = Synchro;
 			sourceTree = "<group>";
 		};
+		6D8ED94B2524AAAC00C0EB46 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				6D8ED94C2524AAC500C0EB46 /* Filter.swift */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
 		6DCF08BE251D391500928A7F /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -317,6 +327,7 @@
 		6DE3280F2521D2CA007FFAB5 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				6D8ED94B2524AAAC00C0EB46 /* Filter */,
 				6DE328122521D368007FFAB5 /* Details */,
 				6DE328102521D327007FFAB5 /* List */,
 			);
@@ -529,6 +540,7 @@
 				6D796A6F251A785C00CCF94F /* UIWindow+init.swift in Sources */,
 				6D796AB4251ABB5C00CCF94F /* UIAlertViewController+Helper.swift in Sources */,
 				6D796AD3251B418F00CCF94F /* Dao.swift in Sources */,
+				6D8ED94D2524AAC500C0EB46 /* Filter.swift in Sources */,
 				6D796ABC251B30BF00CCF94F /* NetWorkService.swift in Sources */,
 				6D796ACC251B3FAA00CCF94F /* DateFormatter+extension.swift in Sources */,
 				6D796AA1251A9A5000CCF94F /* CategoryViewModel.swift in Sources */,
