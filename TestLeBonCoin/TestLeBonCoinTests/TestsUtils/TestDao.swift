@@ -9,6 +9,8 @@ import Foundation
 
 class TestDao:DaoProtocol {
 
+
+
     let items:[TestItem]
     let categories:[TestCategory]
     init() {
@@ -17,6 +19,11 @@ class TestDao:DaoProtocol {
         self.items = (0..<itemsCount).indices.map { _ in TestItem()}
         self.categories = (0..<categoriesCount).indices.map { _ in TestCategory()}
     }
+
+    func getFilteredItems(byCategory: Int?, completion: @escaping ([ItemProtocol]) -> ()) {
+        completion(self.items)
+    }
+
     func saveItemsData(items: [ItemProtocol]) {
         // do nothing
     }

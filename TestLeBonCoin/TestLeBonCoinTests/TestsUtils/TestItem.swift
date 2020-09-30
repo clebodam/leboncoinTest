@@ -74,6 +74,10 @@ class TestItem: ItemProtocol {
         return category_id!
     }
 
+    func setCategoryId(id :Int)  {
+        category_id = id
+    }
+
     func getTitle() -> String {
         return title!
     }

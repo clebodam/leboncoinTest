@@ -12,6 +12,7 @@ import CoreData
 protocol DaoProtocol {
     func saveItemsData(items :[ItemProtocol])
     func getItemsData() -> [ItemProtocol]
+    func getFilteredItems(byCategory: Int?,  completion: @escaping ([ItemProtocol]) -> ())
     func saveCategoriesData(items :[CategoryProtocol])
     func getCategoriesData() -> [CategoryProtocol]
     func reset()
@@ -53,6 +54,29 @@ class Dao<I: ItemProtocol,C: CategoryProtocol> :DaoProtocol {
             return dataManager.getItemsInBase()
         }
         return daoItems.getData()
+    }
+
+    func getFilteredItems(byCategory: Int?,  completion: @escaping ([ItemProtocol]) -> ()) {
+            var allItems = getItemsData()
+            if let idToFilter = byCategory  {
+                allItems = allItems.filter {
+                    $0.getCategoryId() == idToFilter
+                }
+            }
+            var sortedItems = [ItemProtocol] ()
+            let urgentItems = allItems.filter {
+                $0.isUrgent()
+            }.sorted {
+                $0.getCreationDate() ?? Date() > $1.getCreationDate() ?? Date()
+            }
+            let nonUrgentItems = allItems.filter {
+                !$0.isUrgent()
+            }.sorted {
+                $0.getCreationDate() ?? Date() > $1.getCreationDate() ?? Date()
+            }
+            sortedItems.append(contentsOf: urgentItems)
+            sortedItems.append(contentsOf: nonUrgentItems)
+        completion(sortedItems)
     }
 
     func saveCategoriesData(items: [CategoryProtocol]) {

@@ -9,6 +9,8 @@ import Foundation
 
 
 class TestSynchroManager: SynchroProtocol {
+
+
     var dao: DaoProtocol?
 
     var netWorkManager: NetWorkManagerProtocol?
@@ -17,7 +19,7 @@ class TestSynchroManager: SynchroProtocol {
     init() {
         register(netWorkManager: TestNetWorkManager(), dao: TestDao())
     }
-    func doSynchro(_ completion: @escaping ([ItemProtocol], [CategoryProtocol]) -> ()) {
+    func doSynchro(filteredByCategoryID: Int?, _ completion: @escaping CompletionBlock) {
         let items = dao?.getItemsData() ?? [ItemProtocol]()
         let categories = dao?.getCategoriesData() ?? [CategoryProtocol]()
         completion(items,categories)

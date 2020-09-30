@@ -22,34 +22,9 @@ class ListTableViewViewModel<I:ItemProtocol,C:CategoryProtocol> {
         self.synchroManager?.register(netWorkManager:networkManager, dao: dao)
     }
 
-    
-    
-    func filter() {
-        var allItems = items
-        if let filterCategory = filterCategory  {
-            allItems = items.filter {
-                $0.category == filterCategory
-            }
-        }
-        var sortedItems = [ItemViewModel] ()
-        let urgentItems = allItems.filter {
-            $0.isUrgent
-        }.sorted {
-            $0.creation_date ?? Date() > $1.creation_date ?? Date()
-        }
-        let nonUrgentItems = allItems.filter {
-            !$0.isUrgent
-        }.sorted {
-            $0.creation_date ?? Date() > $1.creation_date ?? Date()
-        }
-        sortedItems.append(contentsOf: urgentItems)
-        sortedItems.append(contentsOf: nonUrgentItems)
-        filteredItems.value = sortedItems
-    }
-
-    func getData(_ completion:  @escaping ([ItemProtocol],[CategoryProtocol]) -> ()) {
+    func getData( filteredByCategoryId : Int?, completion:  @escaping ([ItemProtocol],[CategoryProtocol]) -> ()) {
         self.isSynchronizing.value = true
-        synchroManager?.doSynchro { items, categories in
+        synchroManager?.doSynchro(filteredByCategoryID: filteredByCategoryId) { items, categories in
             completion(items, categories)
             self.isSynchronizing.value = false
         }
@@ -57,15 +32,15 @@ class ListTableViewViewModel<I:ItemProtocol,C:CategoryProtocol> {
 
     func  reloadAction() {
         filteredItems.value = [ItemViewModel]()
-        getData { items, categories in
-           _ = self.populateAndFilter(items,categories)
+        getData(filteredByCategoryId: filterCategory?.id) { items, categories in
+                _ = self.populateAndFilter(items,categories)
         }
     }
 
      func populateAndFilter(_ rawItems: [ItemProtocol], _ rawCategories: [CategoryProtocol])  -> [ItemViewModel]{
-        _ = populate(rawItems,rawCategories)
-        filter()
-        return filteredItems.value
+        let result = populate(rawItems,rawCategories)
+        filteredItems.value = result
+        return result
     }
 
     func populate(_ rawItems: [ItemProtocol], _ rawCategories: [CategoryProtocol]) -> [ItemViewModel] {
@@ -128,13 +103,13 @@ class ListTableViewViewModel<I:ItemProtocol,C:CategoryProtocol> {
                     self.filterCategory = cat
                 }
             }
-            self.filter()
+            self.reloadAction()
         })
 
         alert.addAction(okAction)
         let cancelAction = UIAlertAction(title: NSLocalizedString("cancel_button", comment: ""), style: .destructive, handler: { _ in
             self.filterCategory = nil
-            self.filter()
+            self.reloadAction()
         })
         alert.addAction(cancelAction)
 

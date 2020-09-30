@@ -9,7 +9,7 @@ import XCTest
 class DaoTests: XCTestCase {
     var  dao: Dao<TestItem,TestCategory>?
     override func setUpWithError() throws {
-        dao = Dao<TestItem,TestCategory>(persist: false, useCoreData: true)
+        dao = Dao<TestItem,TestCategory>(persist: false, useCoreData: false)
         dao?.reset()
         // Can't test CoreData storage I can't read  the datamodel from the unit test target
         // Don't have time to investigate why
@@ -29,6 +29,32 @@ class DaoTests: XCTestCase {
         dao?.saveCategoriesData(items: categories)
         XCTAssertTrue(dao?.getItemsData().count == itemsCount)
         XCTAssertTrue(dao?.getCategoriesData().count == categoriesCount)
+    }
+
+    func testFilter() throws {
+        let filterExpectation = expectation(description: "filterExpectation")
+        let categoriesCount = 20
+        let itemsCount = 1000
+        let items:[TestItem] = (0..<itemsCount).indices.map { id in let item  = TestItem()
+            item.setCategoryId(id: id%2)
+            return item
+
+        }
+        let categories:[TestCategory] = (0..<categoriesCount).indices.map { id in TestCategory(id:id)}
+        dao?.saveItemsData(items: items)
+        dao?.saveCategoriesData(items: categories)
+        dao?.getFilteredItems(byCategory: 1, completion: { items in
+            XCTAssertTrue(items.count == itemsCount/2)
+            filterExpectation.fulfill()
+        })
+
+        XCTAssertTrue(dao?.getCategoriesData().count == categoriesCount)
+
+        waitForExpectations(timeout: 5) { error in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+            }
+        }
     }
 
     func testReset() throws {

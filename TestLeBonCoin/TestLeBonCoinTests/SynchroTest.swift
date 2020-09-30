@@ -26,7 +26,7 @@ class SynchroTest: XCTestCase {
         let synchro = SynchroManager<TestItem,TestCategory>()
         synchro.register(netWorkManager: TestNetWorkManager(), dao: TestDao())
 
-        synchro.doSynchro { (items, categories) in
+        synchro.doSynchro(filteredByCategoryID: nil ) {(items, categories) in
             XCTAssertTrue(items.count == 100)
             XCTAssertTrue(categories.count == 20)
             testSynchroExpectation.fulfill()
@@ -46,7 +46,7 @@ class SynchroTest: XCTestCase {
         let synchro = SynchroManager<TestItem,TestCategory>()
         synchro.register(netWorkManager: TestNetWorkManager(), dao: TestDao())
         XCTAssertTrue(synchro.shouldDoSynchro())
-        synchro.doSynchro { _,_ in
+        synchro.doSynchro(filteredByCategoryID: nil ) { _,_ in
             //do nothing not the point Here
             // we call doSynchro in order to save lastSynchroDate
         }

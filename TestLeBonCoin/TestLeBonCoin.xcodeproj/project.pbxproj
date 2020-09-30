@@ -40,6 +40,8 @@
 		6D85704D25229BD100225DC6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D85704C25229BD100225DC6 /* Localizable.strings */; };
 		6D85704E25229BD100225DC6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D85704C25229BD100225DC6 /* Localizable.strings */; };
 		6D85704F25229BD100225DC6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D85704C25229BD100225DC6 /* Localizable.strings */; };
+		6D8ED93D2524901200C0EB46 /* UIAlertViewController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796AB3251ABB5C00CCF94F /* UIAlertViewController+Helper.swift */; };
+		6D8ED9412524905800C0EB46 /* UIView+anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796AFB251C986400CCF94F /* UIView+anchor.swift */; };
 		6DCF08B3251CB97000928A7F /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF08B2251CB97000928A7F /* Animator.swift */; };
 		6DCF08B9251CBEE900928A7F /* UIColor+random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF08B8251CBEE900928A7F /* UIColor+random.swift */; };
 		6DCF08C0251D393300928A7F /* Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF08BF251D393200928A7F /* Aliases.swift */; };
@@ -567,6 +569,8 @@
 				6D85701B2522253300225DC6 /* CoreDataManager.swift in Sources */,
 				6DE3277F251E1259007FFAB5 /* NetworkTests.swift in Sources */,
 				6DE32771251E09F8007FFAB5 /* DateFormatter+extension.swift in Sources */,
+				6D8ED9412524905800C0EB46 /* UIView+anchor.swift in Sources */,
+				6D8ED93D2524901200C0EB46 /* UIAlertViewController+Helper.swift in Sources */,
 				6DE327AA251E1971007FFAB5 /* TestDao.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

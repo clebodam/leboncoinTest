@@ -23,7 +23,7 @@ class ViewModelTests: XCTestCase {
         let synchro = TestSynchroManager()
         viewModel.register(synchroManager: synchro, dao: TestDao(), networkManager: TestNetWorkManager())
         let testTreatmentExpectation = expectation(description: "testTreatment")
-        viewModel.getData { (items, categories) in
+        viewModel.getData(filteredByCategoryId: nil ) { (items, categories) in
             XCTAssertTrue(items.count >= 0 )
             XCTAssertTrue(categories.count >= 0)
             testTreatmentExpectation.fulfill()
@@ -50,34 +50,6 @@ class ViewModelTests: XCTestCase {
         }
     }
 
-    func testfilter() {
-        let viewModel = ListTableViewViewModel<TestItem,TestCategory>()
-        let urgentItems = TestItem.createItems(urgent: true, count: 20, categoriesCount: 20)
-        let nonUrgentitems = TestItem.createItems(urgent: false, count: 80, categoriesCount: 20)
-        let categories = TestCategory.createUniqCategories(count: 20)
-
-        var allItems = [TestItem]()
-        allItems.append(contentsOf: urgentItems)
-        allItems.append(contentsOf: nonUrgentitems)
-        allItems.shuffle()
-        let filteredItem: [ItemViewModel] = viewModel.populateAndFilter(allItems, categories)
-        var lastItem: ItemViewModel? = nil
-        for  i  in 0...100 {
-            if i == 21 {
-                lastItem = nil
-            }
-            let item = filteredItem[i]
-            if i <= 20 {
-                XCTAssertTrue(item.isUrgent)
-            } else {
-                XCTAssertFalse(item.isUrgent)
-            }
-            if let lastItemDate = lastItem?.creation_date, let itemDate =   item.creation_date{
-                XCTAssertTrue( itemDate <= lastItemDate)
-            }
-            lastItem = item
-        }
-    }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
