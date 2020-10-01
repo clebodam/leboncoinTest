@@ -30,6 +30,20 @@ class ItemTableViewCell : UITableViewCell, ReuseIdentifierProtocol {
         }
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        itemImage.image = UIImage(named:"image-not-found")
+        categoryLabel.text = nil
+        categoryLabel.backgroundColor = .white
+        itemPriceLabel.text = nil
+        itemNameLabel.text = nil
+        itemDateLabel.text = nil
+        itemDescriptionLabel.text = nil
+        urgentImage.image = nil
+
+
+    }
+
     private let itemPriceLabel : UILabel = {
         let lbl = UILabel()
         lbl.textColor = .black
