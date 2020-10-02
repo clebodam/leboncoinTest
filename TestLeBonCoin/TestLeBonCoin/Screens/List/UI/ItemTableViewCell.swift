@@ -9,13 +9,14 @@ import UIKit
 
 class ItemTableViewCell : UITableViewCell, ReuseIdentifierProtocol {
     // MARK: - PROPERTIES
+    var task :URLSessionDataTask?
     var viewModel : ItemViewModel? {
         didSet {
             itemNameLabel.text = viewModel?.title
             // itemDescriptionLabel.text = viewModel?.description
             urgentImage.isHidden = !(viewModel?.isUrgent ?? false)
             if let url =  viewModel?.smallImageUrl {
-                itemImage.loadImageUsingCache(withUrl: url)
+                task = itemImage.loadImageUsingCache(withUrl: url)
             }
             if  let name = viewModel?.category.name {
                 categoryLabel.text = viewModel?.category.name
@@ -34,6 +35,7 @@ class ItemTableViewCell : UITableViewCell, ReuseIdentifierProtocol {
         super.prepareForReuse()
         self.viewModel = nil
         urgentImage.isHidden = true
+        task?.cancel()
         itemImage.image = UIImage(named:"image-not-found")
         categoryLabel.text = nil
         categoryLabel.backgroundColor = .white
@@ -41,9 +43,6 @@ class ItemTableViewCell : UITableViewCell, ReuseIdentifierProtocol {
         itemNameLabel.text = nil
         itemDateLabel.text = nil
         itemDescriptionLabel.text = nil
-        //urgentImage.image = nil
-
-
     }
 
     private let itemPriceLabel : UILabel = {

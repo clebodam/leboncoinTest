@@ -99,10 +99,7 @@ class Dao<I: ItemProtocol,C: CategoryProtocol> :DaoProtocol {
             return dataManager.getCategoriesInBase()
         }
         return daoCategories.getData()
-    }
-
-
-   
+    }   
 }
 
 
