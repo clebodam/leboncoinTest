@@ -280,10 +280,9 @@
 		6D796AB9251B309F00CCF94F /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				6DC2E98B25274B6100D2DD1D /* Coredata Entities */,
 				6D796AD2251B418F00CCF94F /* Dao.swift */,
 				6D8570192522253300225DC6 /* CoreDataManager.swift */,
-				6DC2E97325272B2100D2DD1D /* ItemCoreData.swift */,
-				6DC2E97B25273EF300D2DD1D /* CategoryCoreData.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -311,6 +310,15 @@
 				6D8ED94C2524AAC500C0EB46 /* Filter.swift */,
 			);
 			path = Filter;
+			sourceTree = "<group>";
+		};
+		6DC2E98B25274B6100D2DD1D /* Coredata Entities */ = {
+			isa = PBXGroup;
+			children = (
+				6DC2E97325272B2100D2DD1D /* ItemCoreData.swift */,
+				6DC2E97B25273EF300D2DD1D /* CategoryCoreData.swift */,
+			);
+			path = "Coredata Entities";
 			sourceTree = "<group>";
 		};
 		6DCF08BE251D391500928A7F /* Constants */ = {
