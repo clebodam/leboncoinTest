@@ -113,7 +113,7 @@ class DetailsViewController: UIViewController {
         urgentImage.isHidden = !viewModel.isUrgent
         itemDescriptionLabel.text = viewModel.description
         if let url =  viewModel.largeImageUrl {
-            itemImage.loadImageUsingCache(withUrl: url)
+            _ = itemImage.loadImageUsingCache(withUrl: url)
         }
         if let date =  viewModel.getCreationDate() {
             itemDateLabel.text = date

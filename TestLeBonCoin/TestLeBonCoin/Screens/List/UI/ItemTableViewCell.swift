@@ -9,7 +9,7 @@ import UIKit
 
 class ItemTableViewCell : UITableViewCell, ReuseIdentifierProtocol {
     // MARK: - PROPERTIES
-    var task :URLSessionDataTask?
+    var task: URLSessionDataTask?
     var viewModel : ItemViewModel? {
         didSet {
             itemNameLabel.text = viewModel?.title
