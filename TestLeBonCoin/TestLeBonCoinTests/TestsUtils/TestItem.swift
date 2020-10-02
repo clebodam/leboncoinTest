@@ -37,10 +37,10 @@ class TestItem: ItemProtocol {
     init() {
         id = Int.random(in :0..<100)
         category_id = Int.random(in :0..<20)
-        title = " title of \(id!)"
-        description = " description of \(id!)"
+        title = " title of \(id)"
+        description = " description of \(id)"
         price = Float(Int.random(in : 0...1000))
-        creation_date = generateRandomDate(daysBack: 10)
+        creation_date = generateRandomDate(daysBack: 10) ?? Date()
         is_urgent = Bool.random()
         images_url = [String:String]()
     }
