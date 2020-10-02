@@ -137,19 +137,19 @@ class CoreDataManager<I: ItemProtocol,C: CategoryProtocol> {
 
                 itemCoreData?.id = item.getId()
                 itemCoreData?.title = item.getTitle()
-                itemCoreData?.is_urgent = item.isUrgent()
+                itemCoreData?.urgent = item.isUrgent()
 
                 itemCoreData?.descr = item.getDescription()
 
                 itemCoreData?.price = item.getPrice()
 
-                itemCoreData?.category_id = item.getCategoryId()
+                itemCoreData?.categoryId = item.getCategoryId()
 
-                itemCoreData?.small_image_url = item.getSmallImageUrl()
+                itemCoreData?.smallImage = item.getSmallImageUrl()
 
-                itemCoreData?.large_image_url = item.getLargeImageUrl()
+                itemCoreData?.largeImage = item.getLargeImageUrl()
 
-                itemCoreData?.creation_date = item.getCreationDate()
+                itemCoreData?.creationDate = item.getCreationDate()
 
             }
         }
@@ -162,29 +162,29 @@ class CoreDataManager<I: ItemProtocol,C: CategoryProtocol> {
         let fetchRequest = NSFetchRequest<ItemCoreData>(entityName: StorageConstants.ItemCoreDataEntityName);
 
         let isUrgentSort =
-            NSSortDescriptor(key: StorageConstants.is_urgent, ascending: false)
+            NSSortDescriptor(key: StorageConstants.urgent, ascending: false)
 
-        let dateSort = NSSortDescriptor(key:StorageConstants.creation_date, ascending:false)
+        let dateSort = NSSortDescriptor(key:StorageConstants.creationDate, ascending:false)
         if let id = byId {
             fetchRequest.predicate = NSPredicate(format:
-                                                    " \(StorageConstants.category_id) == \(id)")
+                                                    " \(StorageConstants.categoryId) == \(id)")
         }
         fetchRequest.sortDescriptors = [isUrgentSort, dateSort]
         do {
             let  itemsCoreData = try managedContext.fetch(fetchRequest)
             for itemCoreData in itemsCoreData {
-                if let largeImage = itemCoreData.large_image_url,
-                   let smallImage = itemCoreData.small_image_url, let date =  itemCoreData.creation_date
+                if let largeImage = itemCoreData.largeImage,
+                   let smallImage = itemCoreData.smallImage, let date =  itemCoreData.creationDate
                 {
                     let newItem: I = I(id: itemCoreData.id,
                                        title: itemCoreData.title,
                                        description: itemCoreData.descr,
-                                       catId: itemCoreData.category_id,
+                                       catId: itemCoreData.categoryId,
                                        price: itemCoreData.price,
                                        largeImage: largeImage,
                                        smallImage: smallImage,
                                        creationDate: date,
-                                       isUrgent: itemCoreData.is_urgent)
+                                       isUrgent: itemCoreData.urgent)
                     result.append(newItem)
                 }
             }

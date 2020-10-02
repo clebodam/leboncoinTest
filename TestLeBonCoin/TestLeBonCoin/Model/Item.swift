@@ -7,15 +7,16 @@
 
 import Foundation
 
-fileprivate enum CodingKeys: String, CodingKey {
+fileprivate enum ItemCodingKeys: String, CodingKey {
     case id
-    case category_id
+    case categoryId = "category_id"
     case title
     case description
     case price
-    case images_url
-    case creation_date
-    case is_urgent
+    case imagesUrl = "images_url"
+    case isUrgent = "is_urgent"
+    case creationDate = "creation_date"
+
 }
 public protocol ItemProtocol: Codable {
     func getId() -> Int
@@ -27,6 +28,7 @@ public protocol ItemProtocol: Codable {
     func getSmallImageUrl() -> String?
     func getCreationDate() -> Date?
     func isUrgent() -> Bool
+
     init(id: Int,
          title: String,
          description: String,
@@ -42,30 +44,30 @@ public protocol ItemProtocol: Codable {
 class Item: ItemProtocol {
 
     private var id: Int?
-    private var category_id: Int?
+    private var categoryId: Int?
     private var title: String?
     private var description: String?
     private var price: Float?
-    private var images_url :[String:String]?
+    private var imagesUrl :[String:String]?
     private var largeImage : String?
     private var smallImage: String?
     private var creation_date: Date?
-    private var is_urgent: Bool?
+    private var urgent: Bool?
 
     required public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let container = try decoder.container(keyedBy: ItemCodingKeys.self)
         self.id = try container.decodeIfPresent(Int.self, forKey: .id)
-        self.category_id = try container.decodeIfPresent(Int.self, forKey: .category_id)
+        self.categoryId = try container.decodeIfPresent(Int.self, forKey: .categoryId)
         self.title = try container.decodeIfPresent(String.self, forKey: .title)
         self.description = try container.decodeIfPresent(String.self, forKey: .description)
         self.price = try container.decodeIfPresent(Float.self, forKey: .price)
-        self.images_url = try container.decodeIfPresent([String: String].self, forKey: .images_url)
-        if let urls = self.images_url {
+        self.imagesUrl = try container.decodeIfPresent([String: String].self, forKey: .imagesUrl)
+        if let urls = self.imagesUrl {
             self.largeImage = urls["thumb"]
             self.smallImage = urls["small"]
         }
-        self.creation_date = try container.decodeIfPresent(Date.self, forKey: .creation_date)
-        self.is_urgent = try container.decodeIfPresent(Bool.self, forKey: .is_urgent)
+        self.creation_date = try container.decodeIfPresent(Date.self, forKey: .creationDate)
+        self.urgent = try container.decodeIfPresent(Bool.self, forKey: .isUrgent)
     }
 
     required init(id: Int,
@@ -79,14 +81,14 @@ class Item: ItemProtocol {
          isUrgent: Bool ) {
 
         self.id = id
-        self.category_id = catId
+        self.categoryId = catId
         self.description = description
         self.title = title
         self.price = price
         self.smallImage = smallImage
         self.largeImage = largeImage
         self.creation_date = creationDate
-        self.is_urgent = isUrgent
+        self.urgent = isUrgent
     }
 
     public func getId() -> Int {
@@ -94,7 +96,7 @@ class Item: ItemProtocol {
     }
 
     public func getCategoryId() -> Int {
-        return category_id ?? -1
+        return categoryId ?? -1
     }
 
     public func getTitle() -> String {
@@ -122,7 +124,7 @@ class Item: ItemProtocol {
     }
 
     public func isUrgent() -> Bool {
-        return is_urgent ?? false
+        return urgent ?? false
     }
 
 
