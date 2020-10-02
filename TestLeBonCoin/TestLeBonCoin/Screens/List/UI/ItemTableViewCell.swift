@@ -32,6 +32,7 @@ class ItemTableViewCell : UITableViewCell, ReuseIdentifierProtocol {
 
     override func prepareForReuse() {
         super.prepareForReuse()
+        self.viewModel = nil
         itemImage.image = UIImage(named:"image-not-found")
         categoryLabel.text = nil
         categoryLabel.backgroundColor = .white
