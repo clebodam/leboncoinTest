@@ -136,7 +136,7 @@ class CoreDataManager<I: ItemProtocol,C: CategoryProtocol> {
                 }
 
                 itemCoreData?.id = item.getId()
-
+                itemCoreData?.title = item.getTitle()
                 itemCoreData?.is_urgent = item.isUrgent()
 
                 itemCoreData?.descr = item.getDescription()

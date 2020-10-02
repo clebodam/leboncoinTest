@@ -60,7 +60,6 @@ class Dao<I: ItemProtocol,C: CategoryProtocol> :DaoProtocol {
 
         if useCoreData {
             completion(dataManager.getItemsInBase(byId: byCategory))
-
         } else {
             var allItems = getItemsData()
             if let idToFilter = byCategory  {
