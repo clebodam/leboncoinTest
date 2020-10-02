@@ -23,16 +23,16 @@ func generateRandomDate(daysBack: Int)-> Date?{
     }
 
 class TestItem: ItemProtocol {
-    private var id: Int?
-    private var category_id: Int?
-    private var title: String?
-    private var description: String?
-    private var price: Float?
+    private var id: Int
+    private var category_id: Int
+    private var title: String
+    private var description: String
+    private var price: Float
     private var images_url :[String:String]?
     private var largeImage : String?
     private var smallImage: String?
-    private var creation_date: Date?
-    private var is_urgent: Bool?
+    private var creation_date: Date
+    private var is_urgent: Bool
 
     init() {
         id = Int.random(in :0..<100)
@@ -67,11 +67,11 @@ class TestItem: ItemProtocol {
     }
     
     func getId() -> Int {
-        return id!
+        return id
     }
 
     func getCategoryId() -> Int {
-        return category_id!
+        return category_id
     }
 
     func setCategoryId(id :Int)  {
@@ -79,15 +79,15 @@ class TestItem: ItemProtocol {
     }
 
     func getTitle() -> String {
-        return title!
+        return title
     }
 
     func getDescription() -> String {
-        return description!
+        return description
     }
 
     func getPrice() -> Float {
-        return price!
+        return price
     }
 
     func getLargeImageUrl() -> String? {
@@ -103,7 +103,7 @@ class TestItem: ItemProtocol {
     }
 
     func isUrgent() -> Bool {
-        return  is_urgent!
+        return  is_urgent
     }
 
     static func createItem(urgent:Bool, catId: Int) -> TestItem {
