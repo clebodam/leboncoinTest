@@ -60,9 +60,9 @@ class CoreDataManager<I: ItemProtocol,C: CategoryProtocol> {
     func saveCategoriesInBase(items: [CategoryProtocol]) {
         bgContext.performAndWait {
             for item in items {
-                var  categoryCoreData :NSManagedObject?
+                var  categoryCoreData :CategoryCoreData?
                 let fetchRequest =
-                    NSFetchRequest<NSManagedObject>(entityName: StorageConstants.CategoryCoreDataEntityName)
+                    NSFetchRequest<CategoryCoreData>(entityName: StorageConstants.CategoryCoreDataEntityName)
                 fetchRequest.predicate = NSPredicate(format: "\(StorageConstants.id) == \(item.getId())")
                 categoryCoreData = try? bgContext.fetch(fetchRequest).first
                 if categoryCoreData == nil {
@@ -70,11 +70,11 @@ class CoreDataManager<I: ItemProtocol,C: CategoryProtocol> {
                         NSEntityDescription.entity(forEntityName: StorageConstants.CategoryCoreDataEntityName,
                                                    in: bgContext)!
                     print("create entity \(StorageConstants.CategoryCoreDataEntityName)")
-                    categoryCoreData = NSManagedObject(entity: entity,
-                                                       insertInto: bgContext)
+                    categoryCoreData = CategoryCoreData(entity: entity,
+                                                        insertInto: bgContext)
                 }
-                categoryCoreData?.setValue(item.getId(), forKeyPath: StorageConstants.id)
-                categoryCoreData?.setValue(item.getName(), forKeyPath: StorageConstants.name)
+                categoryCoreData?.id = item.getId()
+                categoryCoreData?.name = item.getName()
             }
         }
         save()
@@ -84,16 +84,15 @@ class CoreDataManager<I: ItemProtocol,C: CategoryProtocol> {
         var result = [CategoryProtocol]()
         let managedContext = context
         let fetchRequest =
-            NSFetchRequest<NSManagedObject>(entityName: StorageConstants.CategoryCoreDataEntityName)
+            NSFetchRequest<CategoryCoreData>(entityName: StorageConstants.CategoryCoreDataEntityName)
         do {
             let  categoriesCoreData = try managedContext.fetch(fetchRequest)
             for categoryCoreData in categoriesCoreData {
-                if let id =  categoryCoreData.value( forKeyPath: StorageConstants.id) as? Int,
-                   let name = categoryCoreData.value( forKeyPath: StorageConstants.name) as? String {
-                    let newItem: C = C(id: id,
-                                       name: name)
-                    result.append(newItem)
-                }
+
+                let newItem: C = C(id: categoryCoreData.id,
+                                   name: categoryCoreData.name)
+                result.append(newItem)
+
             }
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
@@ -122,60 +121,70 @@ class CoreDataManager<I: ItemProtocol,C: CategoryProtocol> {
     func saveItemsInBase(items: [ItemProtocol]) {
         bgContext.performAndWait {
             for item in items {
-                var  itemCoreData :NSManagedObject?
+                var  itemCoreData :ItemCoreData?
                 let fetchRequest =
-                    NSFetchRequest<NSManagedObject>(entityName: StorageConstants.ItemCoreDataEntityName)
+                    NSFetchRequest<ItemCoreData>(entityName: StorageConstants.ItemCoreDataEntityName)
                 fetchRequest.predicate = NSPredicate(format: "\(StorageConstants.id) == \(item.getId())")
                 itemCoreData = try? bgContext.fetch(fetchRequest).first
                 if itemCoreData == nil {
                     let entity =
                         NSEntityDescription.entity(forEntityName: StorageConstants.ItemCoreDataEntityName,
                                                    in: bgContext)!
-                    itemCoreData = NSManagedObject(entity: entity,
-                                                   insertInto: bgContext)
+                    itemCoreData = ItemCoreData(entity: entity,
+                                                insertInto: bgContext)
                     print("create entity \(StorageConstants.ItemCoreDataEntityName) \(item.getId())")
                 }
-                itemCoreData?.setValue(item.getId(), forKeyPath: StorageConstants.id)
-                itemCoreData?.setValue(item.getTitle(), forKeyPath: StorageConstants.title)
-                itemCoreData?.setValue(item.getDescription(), forKeyPath: StorageConstants.descr)
-                itemCoreData?.setValue(item.getPrice(), forKeyPath: StorageConstants.price)
-                itemCoreData?.setValue(item.isUrgent(), forKeyPath: StorageConstants.is_urgent)
-                itemCoreData?.setValue(item.getCategoryId(), forKeyPath: StorageConstants.category_id)
-                itemCoreData?.setValue(item.getLargeImageUrl(), forKeyPath: StorageConstants.large_image_url)
-                itemCoreData?.setValue(item.getSmallImageUrl(), forKeyPath: StorageConstants.small_image_url)
-                itemCoreData?.setValue(item.getCreationDate(), forKeyPath: StorageConstants.creation_date)
+
+                itemCoreData?.id = item.getId()
+
+                itemCoreData?.is_urgent = item.isUrgent()
+
+                itemCoreData?.descr = item.getDescription()
+
+                itemCoreData?.price = item.getPrice()
+
+                itemCoreData?.category_id = item.getCategoryId()
+
+                itemCoreData?.small_image_url = item.getSmallImageUrl()
+
+                itemCoreData?.large_image_url = item.getLargeImageUrl()
+
+                itemCoreData?.creation_date = item.getCreationDate()
+
             }
         }
         save()
     }
 
-    func getItemsInBase() -> [ItemProtocol] {
+    func getItemsInBase(byId:Int?) -> [ItemProtocol] {
         var result = [ItemProtocol]()
         let managedContext = context
-        let fetchRequest =
-            NSFetchRequest<NSManagedObject>(entityName: StorageConstants.ItemCoreDataEntityName)
+        let fetchRequest = NSFetchRequest<ItemCoreData>(entityName: StorageConstants.ItemCoreDataEntityName);
+
+        let isUrgentSort =
+            NSSortDescriptor(key: StorageConstants.is_urgent, ascending: false)
+
+        let dateSort = NSSortDescriptor(key:StorageConstants.creation_date, ascending:false)
+        if let id = byId {
+            fetchRequest.predicate = NSPredicate(format:
+                                                    " \(StorageConstants.category_id) == \(id)")
+        }
+        fetchRequest.sortDescriptors = [isUrgentSort, dateSort]
         do {
             let  itemsCoreData = try managedContext.fetch(fetchRequest)
             for itemCoreData in itemsCoreData {
-                if let id =  itemCoreData.value( forKeyPath: StorageConstants.id) as? Int,
-                   let title = itemCoreData.value( forKeyPath: StorageConstants.title) as? String,
-                   let description = itemCoreData.value( forKeyPath: StorageConstants.descr) as? String,
-                   let price =  itemCoreData.value( forKeyPath: StorageConstants.price) as? Float,
-                   let isUrgent = itemCoreData.value( forKeyPath: StorageConstants.is_urgent) as? Bool,
-                   let catId = itemCoreData.value( forKeyPath: StorageConstants.category_id) as? Int,
-                   let largeImage = itemCoreData.value( forKeyPath: StorageConstants.large_image_url) as? String,
-                   let smallImage = itemCoreData.value( forKeyPath: StorageConstants.small_image_url) as? String,
-                   let date = itemCoreData.value( forKeyPath: StorageConstants.creation_date) as? Date
+                if let largeImage = itemCoreData.large_image_url,
+                   let smallImage = itemCoreData.small_image_url, let date =  itemCoreData.creation_date
                 {
-                    let newItem: I = I(id: id,
-                                       title: title,
-                                       description: description,
-                                       catId: catId,
-                                       price: price,
+                    let newItem: I = I(id: itemCoreData.id,
+                                       title: itemCoreData.title,
+                                       description: itemCoreData.descr,
+                                       catId: itemCoreData.category_id,
+                                       price: itemCoreData.price,
                                        largeImage: largeImage,
                                        smallImage: smallImage,
                                        creationDate: date,
-                                       isUrgent: isUrgent)
+                                       isUrgent: itemCoreData.is_urgent)
                     result.append(newItem)
                 }
             }
@@ -183,6 +192,11 @@ class CoreDataManager<I: ItemProtocol,C: CategoryProtocol> {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
         return result
+
+    }
+
+    func getItemsInBase() -> [ItemProtocol] {
+        return getItemsInBase(byId:nil)
     }
 
     // MARK: - Core Data Saving support
@@ -198,8 +212,6 @@ class CoreDataManager<I: ItemProtocol,C: CategoryProtocol> {
                 do {
                     try context.save()
                 } catch {
-                    // Replace this implementation with code to handle the error appropriately.
-                    // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                     let nserror = error as NSError
                     fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
                 }

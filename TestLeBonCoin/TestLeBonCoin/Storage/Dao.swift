@@ -57,6 +57,11 @@ class Dao<I: ItemProtocol,C: CategoryProtocol> :DaoProtocol {
     }
 
     func getFilteredItems(byCategory: Int?,  completion: @escaping ([ItemProtocol]) -> ()) {
+
+        if useCoreData {
+            completion(dataManager.getItemsInBase(byId: byCategory))
+
+        } else {
             var allItems = getItemsData()
             if let idToFilter = byCategory  {
                 allItems = allItems.filter {
@@ -77,6 +82,7 @@ class Dao<I: ItemProtocol,C: CategoryProtocol> :DaoProtocol {
             sortedItems.append(contentsOf: urgentItems)
             sortedItems.append(contentsOf: nonUrgentItems)
         completion(sortedItems)
+        }
     }
 
     func saveCategoriesData(items: [CategoryProtocol]) {

@@ -33,6 +33,7 @@ class ItemTableViewCell : UITableViewCell, ReuseIdentifierProtocol {
     override func prepareForReuse() {
         super.prepareForReuse()
         self.viewModel = nil
+        urgentImage.isHidden = true
         itemImage.image = UIImage(named:"image-not-found")
         categoryLabel.text = nil
         categoryLabel.backgroundColor = .white
@@ -40,7 +41,7 @@ class ItemTableViewCell : UITableViewCell, ReuseIdentifierProtocol {
         itemNameLabel.text = nil
         itemDateLabel.text = nil
         itemDescriptionLabel.text = nil
-        urgentImage.image = nil
+        //urgentImage.image = nil
 
 
     }

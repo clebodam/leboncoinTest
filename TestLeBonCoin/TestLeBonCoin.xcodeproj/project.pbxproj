@@ -42,6 +42,10 @@
 		6D85704F25229BD100225DC6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D85704C25229BD100225DC6 /* Localizable.strings */; };
 		6D8ED94D2524AAC500C0EB46 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8ED94C2524AAC500C0EB46 /* Filter.swift */; };
 		6D8ED9522524B37200C0EB46 /* UIview+reuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8ED9512524B37200C0EB46 /* UIview+reuseIdentifier.swift */; };
+		6DC2E97425272B2100D2DD1D /* ItemCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC2E97325272B2100D2DD1D /* ItemCoreData.swift */; };
+		6DC2E97C25273EF300D2DD1D /* CategoryCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC2E97B25273EF300D2DD1D /* CategoryCoreData.swift */; };
+		6DC2E9832527458E00D2DD1D /* ItemCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC2E97325272B2100D2DD1D /* ItemCoreData.swift */; };
+		6DC2E9872527459300D2DD1D /* CategoryCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC2E97B25273EF300D2DD1D /* CategoryCoreData.swift */; };
 		6DCF08B3251CB97000928A7F /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF08B2251CB97000928A7F /* Animator.swift */; };
 		6DCF08B9251CBEE900928A7F /* UIColor+random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF08B8251CBEE900928A7F /* UIColor+random.swift */; };
 		6DCF08C0251D393300928A7F /* Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF08BF251D393200928A7F /* Aliases.swift */; };
@@ -124,6 +128,8 @@
 		6D85704C25229BD100225DC6 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		6D8ED94C2524AAC500C0EB46 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		6D8ED9512524B37200C0EB46 /* UIview+reuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIview+reuseIdentifier.swift"; sourceTree = "<group>"; };
+		6DC2E97325272B2100D2DD1D /* ItemCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCoreData.swift; sourceTree = "<group>"; };
+		6DC2E97B25273EF300D2DD1D /* CategoryCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCoreData.swift; sourceTree = "<group>"; };
 		6DCF08B2251CB97000928A7F /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		6DCF08B8251CBEE900928A7F /* UIColor+random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+random.swift"; sourceTree = "<group>"; };
 		6DCF08BF251D393200928A7F /* Aliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aliases.swift; sourceTree = "<group>"; };
@@ -276,6 +282,8 @@
 			children = (
 				6D796AD2251B418F00CCF94F /* Dao.swift */,
 				6D8570192522253300225DC6 /* CoreDataManager.swift */,
+				6DC2E97325272B2100D2DD1D /* ItemCoreData.swift */,
+				6DC2E97B25273EF300D2DD1D /* CategoryCoreData.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -527,6 +535,7 @@
 				6DCF08C0251D393300928A7F /* Aliases.swift in Sources */,
 				6D796A94251A8DE400CCF94F /* ListTableViewViewModel.swift in Sources */,
 				6D796AFC251C986400CCF94F /* UIView+anchor.swift in Sources */,
+				6DC2E97C25273EF300D2DD1D /* CategoryCoreData.swift in Sources */,
 				6D796A2F251A3DED00CCF94F /* AppDelegate.swift in Sources */,
 				6DCF08B9251CBEE900928A7F /* UIColor+random.swift in Sources */,
 				6D8ED9522524B37200C0EB46 /* UIview+reuseIdentifier.swift in Sources */,
@@ -547,6 +556,7 @@
 				6D8ED94D2524AAC500C0EB46 /* Filter.swift in Sources */,
 				6D796ABC251B30BF00CCF94F /* NetWorkService.swift in Sources */,
 				6D796ACC251B3FAA00CCF94F /* DateFormatter+extension.swift in Sources */,
+				6DC2E97425272B2100D2DD1D /* ItemCoreData.swift in Sources */,
 				6D796AA1251A9A5000CCF94F /* CategoryViewModel.swift in Sources */,
 				6D796AD9251B68E700CCF94F /* Category.swift in Sources */,
 				6DE3282C2521D7DD007FFAB5 /* UIConstants.swift in Sources */,
@@ -560,11 +570,13 @@
 			files = (
 				6DE32775251E0A07007FFAB5 /* Dynamic.swift in Sources */,
 				6DE32764251E05A1007FFAB5 /* DaoTests.swift in Sources */,
+				6DC2E9872527459300D2DD1D /* CategoryCoreData.swift in Sources */,
 				6DE327C1251E1EFE007FFAB5 /* ViewModelTests.swift in Sources */,
 				6D857028252273E500225DC6 /* StorageConstants.swift in Sources */,
 				6DE327B4251E1D2F007FFAB5 /* TestSynchroManager.swift in Sources */,
 				6DE327A5251E1952007FFAB5 /* SynchroTest.swift in Sources */,
 				6DE327F92520E605007FFAB5 /* CategoryViewModelTests.swift in Sources */,
+				6DC2E9832527458E00D2DD1D /* ItemCoreData.swift in Sources */,
 				6DE3274B251E0529007FFAB5 /* Dao.swift in Sources */,
 				6DE3277A251E0A45007FFAB5 /* TestCategory.swift in Sources */,
 				6DE327AF251E1B15007FFAB5 /* TestNetWorkManager.swift in Sources */,
