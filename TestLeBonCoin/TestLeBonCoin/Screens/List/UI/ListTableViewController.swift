@@ -102,7 +102,8 @@ class ListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let itemViewModel = viewModel.getItemViewModel(atIndexPath: indexPath) {
-            self.navigationController?.pushViewController(DetailsViewController(itemViewModel), animated: true)
+            let detailCoordinator = DetailCoordinator(from: self, screen: DetailsViewController(itemViewModel))
+            detailCoordinator.start()
         }
     }
 

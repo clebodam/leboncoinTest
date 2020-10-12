@@ -10,6 +10,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var appCoordinator: AppCoordinator?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         if #available(iOS 13.0, *) {
@@ -17,10 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             let window = UIWindow(frame: UIScreen.main.bounds)
             self.window = window
-            let viewController = MyNavigationController(rootViewController: ListTableViewController())
-            window.setup(viewController)
+            appCoordinator = AppCoordinator( from: nil , screen : ListTableViewController())
+            window.setup(appCoordinator?.navigationController)
+            appCoordinator?.start()
         }
-
         return true
     }
 

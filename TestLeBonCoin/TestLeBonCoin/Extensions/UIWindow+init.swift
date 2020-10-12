@@ -10,7 +10,7 @@ import UIKit
 
 public extension UIWindow {
 
-    func setup(_ rootVC: UIViewController) {
+    func setup(_ rootVC: UIViewController?) {
         self.rootViewController = rootVC
         self.makeKeyAndVisible()
     }

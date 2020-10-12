@@ -62,6 +62,7 @@ class Filter<I:ItemProtocol,C:CategoryProtocol>: Filterprotocol {
         // here we have an issue Will attempt to recover by breaking constraint
         //<NSLayoutConstraint:0x600001823390 UIView:0x7fb277d68230.width == - 16   (active)>
         // this a known bug  https://stackoverflow.com/questions/55372093/uialertcontrollers-actionsheet-gives-constraint-error-on-ios-12-2-12-3
-        screen.parent?.present(alert, animated: true)
+        let filterCoordinator = FilterCoordinator(from: screen, screen: alert)
+        filterCoordinator.start()
     }
 }
