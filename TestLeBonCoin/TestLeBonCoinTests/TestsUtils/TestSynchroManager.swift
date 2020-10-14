@@ -22,7 +22,7 @@ class TestSynchroManager: SynchroProtocol {
     func doSynchro(filteredByCategoryID: Int?, _ completion: @escaping CompletionBlock) {
         let items = dao?.getItemsData() ?? [ItemProtocol]()
         let categories = dao?.getCategoriesData() ?? [CategoryProtocol]()
-        completion(items,categories)
+        completion(items,categories, nil)
     }
 
     func register(netWorkManager: NetWorkManagerProtocol, dao: DaoProtocol) {

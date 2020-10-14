@@ -23,7 +23,7 @@ class ViewModelTests: XCTestCase {
         let synchro = TestSynchroManager()
         viewModel.register(synchroManager: synchro, dao: TestDao(), networkManager: TestNetWorkManager())
         let testTreatmentExpectation = expectation(description: "testTreatment")
-        viewModel.getData(filteredByCategoryId: nil ) { (items, categories) in
+        viewModel.getData(filteredByCategoryId: nil ) { (items, categories, error) in
             XCTAssertTrue(items.count >= 0 )
             XCTAssertTrue(categories.count >= 0)
             testTreatmentExpectation.fulfill()
