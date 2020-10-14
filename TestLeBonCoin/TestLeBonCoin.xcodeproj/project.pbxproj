@@ -218,11 +218,11 @@
 		6D796A2D251A3DED00CCF94F /* TestLeBonCoin */ = {
 			isa = PBXGroup;
 			children = (
+				6D796A2E251A3DED00CCF94F /* AppDelegate.swift */,
 				6D796A30251A3DED00CCF94F /* SceneDelegate.swift */,
 				6D689D5025347FD0002EBD1C /* Coordinators */,
 				6D85704C25229BD100225DC6 /* Localizable.strings */,
 				6D8570412522862A00225DC6 /* TestLeBonCoin.xcdatamodeld */,
-				6D796A2E251A3DED00CCF94F /* AppDelegate.swift */,
 				6DE3280F2521D2CA007FFAB5 /* Screens */,
 				6D796ADE251B6CFF00CCF94F /* Synchro */,
 				6D796ABA251B30A800CCF94F /* Network */,

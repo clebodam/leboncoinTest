@@ -21,9 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         self.window = window
         appCoordinator = AppCoordinator( from: nil, screen : ListTableViewController())
-        window.setup(appCoordinator?.navigationController)
-        appCoordinator?.start()
-
+        appCoordinator?.configureAndStartFromWindow(window)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

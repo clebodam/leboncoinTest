@@ -18,7 +18,6 @@ protocol Coordinator {
 
 extension Coordinator {
 
-    /** Pushes a view controller onto the receiver’s stack and updates the display. */
     func push(_ viewController: UIViewController?) {
         guard let viewController = viewController else {
             return
@@ -26,7 +25,6 @@ extension Coordinator {
         navigationController?.pushViewController(viewController, animated: true)
     }
 
-    /** Presents a view controller modally. */
     func present(_ viewController: UIViewController?) {
         guard let viewController = viewController else {
             return

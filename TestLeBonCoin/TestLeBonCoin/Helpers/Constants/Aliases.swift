@@ -7,5 +7,5 @@
 
 import Foundation
 
-typealias CompletionBlock = ([ItemProtocol],[CategoryProtocol]) -> ()
+typealias CompletionBlock = ([ItemProtocol],[CategoryProtocol], NetworkError?) -> ()
 

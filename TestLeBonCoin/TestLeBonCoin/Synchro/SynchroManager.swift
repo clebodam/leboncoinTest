@@ -50,24 +50,26 @@ class SynchroManager<I:ItemProtocol,C:CategoryProtocol>: SynchroProtocol {
     }
 
     func shouldDoSynchro() -> Bool {
+        print ( "shouldDoSynchro \(lastSynchroDate())  \(getTimeProvider().now())")
         return lastSynchroDate().addingTimeInterval(TimeInterval(SYNCHRO_DELAY_SECONDS)) <= getTimeProvider().now()
     }
     
     func doSynchro(filteredByCategoryID: Int?, _ completion: @escaping CompletionBlock)  {
         if Reachability.isConnectedToNetwork() && shouldDoSynchro()  {
             // get new data, write it and use it
-            netWorkManager?.getData { [weak self]  items , categories in
-                // we can  do a reset to remove all entities
-                // this is the easier synchronisation strategy
-               // self?.dao?.reset()
-                
-                self?.dao?.saveItemsData(items: items)
-                self?.dao?.saveCategoriesData(items: categories)
+            netWorkManager?.getData { [weak self]  items , categories, error in
+                if error == nil {
+                    // we can  do a reset to remove all entities
+                    // this is the easier synchronisation strategy
+                    self?.dao?.reset()
+                    self?.dao?.saveItemsData(items: items)
+                    self?.dao?.saveCategoriesData(items: categories)
+                }
                 print("SynchroManager - data from network \(items.count) items")
 
                 self?.dao?.getFilteredItems(byCategory: filteredByCategoryID, completion: { (items) in
                       if  let categories = self?.dao?.getCategoriesData() {
-                        completion(items, categories)
+                        completion(items, categories, error)
                         print("SynchroManager - data from network \(items.count) items")
                         self?.saveLastSynchroDate()
                     }
@@ -76,9 +78,8 @@ class SynchroManager<I:ItemProtocol,C:CategoryProtocol>: SynchroProtocol {
         } else {
             self.dao?.getFilteredItems(byCategory: filteredByCategoryID, completion: { (items) in
                   if  let categories = self.dao?.getCategoriesData() {
-                    completion(items, categories)
+                    completion(items, categories, nil)
                     print("SynchroManager - data from storage \(items.count) items")
-                    self.saveLastSynchroDate()
                 }
             })
         }

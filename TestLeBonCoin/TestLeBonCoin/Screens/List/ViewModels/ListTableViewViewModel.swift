@@ -10,6 +10,7 @@ import UIKit
 class ListTableViewViewModel<I:ItemProtocol,C:CategoryProtocol> {
     var filterCategory: CategoryViewModel?
     var isSynchronizing = Dynamic(false)
+    var synChronizingError: Dynamic<NetworkError?> = Dynamic(nil)
     var filteredItems: Dynamic<[ItemViewModel]> = Dynamic([ItemViewModel]())
     private var categories: [CategoryViewModel] =  [CategoryViewModel]()
     private var synchroManager: SynchroProtocol?
@@ -20,17 +21,21 @@ class ListTableViewViewModel<I:ItemProtocol,C:CategoryProtocol> {
         self.synchroManager?.register(netWorkManager:networkManager, dao: dao)
     }
 
-    func getData( filteredByCategoryId : Int?, completion:  @escaping ([ItemProtocol],[CategoryProtocol]) -> ()) {
+    func getData( filteredByCategoryId : Int?, completion:  @escaping CompletionBlock) {
         self.isSynchronizing.value = true
-        synchroManager?.doSynchro(filteredByCategoryID: filteredByCategoryId) { items, categories in
-            completion(items, categories)
+        synchroManager?.doSynchro(filteredByCategoryID: filteredByCategoryId) { items, categories, error in
+            if let error = error {
+                self.synChronizingError.value = error
+            }
+            completion(items, categories, error)
             self.isSynchronizing.value = false
         }
     }
 
     func  reloadAction() {
         filteredItems.value = [ItemViewModel]()
-        getData(filteredByCategoryId: filterCategory?.id) { items, categories in
+        getData(filteredByCategoryId: filterCategory?.id) { items, categories, error in
+            self.synChronizingError.value = error
                 _ = self.populateAndFilter(items,categories)
         }
     }

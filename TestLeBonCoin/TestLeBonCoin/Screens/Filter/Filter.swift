@@ -7,17 +7,19 @@
 
 import Foundation
 import UIKit
+
 protocol Filterprotocol {
-    func showFilter(on screen : UIViewController, from: UIView)
+    func createFilter(on screen :  UIViewController, from: UIView) -> UIViewController
 }
 
-class Filter<I:ItemProtocol,C:CategoryProtocol>: Filterprotocol {
+class Filter<I:ItemProtocol, C:CategoryProtocol>: Filterprotocol {
+
     private let viewModel: ListTableViewViewModel<I,C>
     init(viewModel:ListTableViewViewModel<I,C>){
         self.viewModel = viewModel
     }
     
-    func showFilter(on screen :  UIViewController, from: UIView) {
+    func createFilter(on screen :  UIViewController, from: UIView) -> UIViewController {
         let alert = UIAlertController(title: NSLocalizedString("filter_title", comment: ""),
                                       message: nil,
                                       preferredStyle: UIAlertController.Style.actionSheet)
@@ -62,7 +64,6 @@ class Filter<I:ItemProtocol,C:CategoryProtocol>: Filterprotocol {
         // here we have an issue Will attempt to recover by breaking constraint
         //<NSLayoutConstraint:0x600001823390 UIView:0x7fb277d68230.width == - 16   (active)>
         // this a known bug  https://stackoverflow.com/questions/55372093/uialertcontrollers-actionsheet-gives-constraint-error-on-ios-12-2-12-3
-        let filterCoordinator = FilterCoordinator(from: screen, screen: alert)
-        filterCoordinator.start()
+       return alert
     }
 }

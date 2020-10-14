@@ -19,8 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let window = UIWindow(frame: UIScreen.main.bounds)
             self.window = window
             appCoordinator = AppCoordinator( from: nil , screen : ListTableViewController())
-            window.setup(appCoordinator?.navigationController)
-            appCoordinator?.start()
+            appCoordinator?.configureAndStartFromWindow(window)
         }
         return true
     }

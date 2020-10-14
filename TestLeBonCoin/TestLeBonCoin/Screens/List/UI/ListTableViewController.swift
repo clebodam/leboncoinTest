@@ -7,12 +7,24 @@
 
 import UIKit
 
-class ListTableViewController: UITableViewController {
+protocol ListCoordinatorScreen {
+    func registerCoordinator(coordinator: ListCoordinator)
+}
+
+class ListTableViewController: UITableViewController, ListCoordinatorScreen {
+    
+    func registerCoordinator(coordinator: ListCoordinator) {
+        self.coordinator = coordinator
+    }
+
+
+
+
     // MARK: - PROPERTIES
     var filterButton: UIBarButtonItem?
     var reloadButton: UIBarButtonItem?
     var viewModel = ListTableViewViewModel<Item,Category>()
-
+    var coordinator: ListCoordinator?
     override var preferredStatusBarStyle: UIStatusBarStyle {
         if #available(iOS 13, *) {
             return .darkContent
@@ -77,6 +89,15 @@ class ListTableViewController: UITableViewController {
                 }
             }
         }
+        viewModel.synChronizingError.bind{ [weak self]  (value) in
+            DispatchQueue.main.async {
+                if let error = value {
+                    DispatchQueue.main.async {
+                        self?.showSynchronizingError(error)
+                    }
+                }
+            }
+        }
     }
 
     // MARK: - TableView delegation
@@ -102,8 +123,7 @@ class ListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let itemViewModel = viewModel.getItemViewModel(atIndexPath: indexPath) {
-            let detailCoordinator = DetailCoordinator(from: self, screen: DetailsViewController(itemViewModel))
-            detailCoordinator.start()
+            self.coordinator?.goToDetail(withModel: itemViewModel)
         }
     }
 
@@ -121,7 +141,12 @@ class ListTableViewController: UITableViewController {
     }
     
     @objc func filterAction(sender: UIButton) {
-        Filter(viewModel: viewModel).showFilter(on: self, from: sender )
+        let filter = Filter(viewModel: viewModel).createFilter(on: self, from: sender )
+        self.coordinator?.presentFilter(filter)
+    }
+
+    @objc func showSynchronizingError(_ error: Error) {
+        self.coordinator?.showSynchronizingError(error)
     }
 }
 

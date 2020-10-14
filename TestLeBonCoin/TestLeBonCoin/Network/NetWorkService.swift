@@ -25,7 +25,8 @@ class NetWorkManager<I:ItemProtocol,C:CategoryProtocol>: NetWorkManagerProtocol 
     var sessionCfg: URLSessionConfiguration
 
 
-    private let ITEMS_URL = "https://raw.githubusercontent.com/leboncoin/paperclip/master/listing.json"
+    private let ITEMS_URL =
+        "https://raw.githubusercontent.com/leboncoin/paperclip/master/listing.json"
     private let CATEGORIES_URL = "https://raw.githubusercontent.com/leboncoin/paperclip/master/categories.json"
     private var _currentTask: URLSessionDataTask?
 
@@ -84,21 +85,24 @@ class NetWorkManager<I:ItemProtocol,C:CategoryProtocol>: NetWorkManagerProtocol 
     public  func getData(completion: @escaping CompletionBlock){
         var categories = [CategoryProtocol]()
         var items = [ItemProtocol]()
+        var netWorkError: NetworkError? = nil
         getCategories { (catResult) in
             switch catResult {
             case .success(let response):
                 categories = response
-            case .failure:
+            case .failure(let error):
+                netWorkError = error as? NetworkError
                 print("fetch categories fail from intenet")
             }
             self.getItems { (ItemsResult) in
                 switch ItemsResult {
                 case .success(let response):
                     items = response
-                case .failure:
+                case .failure(let error):
+                    netWorkError = error as? NetworkError
                     print("fetch items fail from intenet")
                 }
-                completion(items, categories)
+                completion(items, categories, netWorkError)
             }
         }
     }
