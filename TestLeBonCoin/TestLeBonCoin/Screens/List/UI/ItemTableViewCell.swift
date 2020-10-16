@@ -19,8 +19,10 @@ class ItemTableViewCell : UITableViewCell, ReuseIdentifierProtocol {
                 task = itemImage.loadImageUsingCache(withUrl: url)
             }
             if  let name = viewModel?.category.name {
+                let color =  UIColor.randomColor(seed: name)
                 categoryLabel.text = viewModel?.category.name
-                categoryLabel.backgroundColor = UIColor.randomColor(seed: name)
+                categoryLabel.backgroundColor = color
+                self.backgroundColor = color.withAlphaComponent(0.2)
             }
             if let date =  viewModel?.getCreationDate() {
                 itemDateLabel.text = date
@@ -43,6 +45,7 @@ class ItemTableViewCell : UITableViewCell, ReuseIdentifierProtocol {
         itemNameLabel.text = nil
         itemDateLabel.text = nil
         itemDescriptionLabel.text = nil
+        self.backgroundColor = .white
     }
 
     private let itemPriceLabel : UILabel = {
@@ -110,6 +113,7 @@ class ItemTableViewCell : UITableViewCell, ReuseIdentifierProtocol {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
+        self.layer.cornerRadius = cornerSize
         self.backgroundColor = .white
         addSubview(itemImage)
         addSubview(urgentImage)
@@ -118,7 +122,6 @@ class ItemTableViewCell : UITableViewCell, ReuseIdentifierProtocol {
         addSubview(itemPriceLabel)
         addSubview(itemDescriptionLabel)
         addSubview(categoryLabel)
-    
 
         itemImage.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop:paddingSize, paddingLeft: paddingSize, paddingBottom: 0, paddingRight: 0, width: imageSize, height: imageSize, enableInsets: true)
         urgentImage.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft:0, paddingBottom: 0, paddingRight: 0, width: smallImageSize, height: smallImageSize, enableInsets: true)
